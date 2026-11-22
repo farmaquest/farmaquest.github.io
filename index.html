@@ -129,6 +129,8 @@ h1{font-size:26px;margin:0 0 4px;color:var(--heading);text-wrap:balance}
 .mcard-head h3{margin:0;font-size:18px;text-wrap:balance}
 .mcard-head p{margin:2px 0 0;color:var(--bar-sub);font-size:14px}
 .mcard-body{padding:14px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.geral-card{display:flex;flex-direction:column;margin-top:18px}
+.geral-card .mcard-head{min-height:0}
 .sim-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--baby-2)}
 .sim-row .info{flex:1;min-width:0}
 .sim-row .t{font-weight:700;color:var(--heading);font-size:15px}
@@ -4895,8 +4897,10 @@ const SIMS = [
   { key: '2026', nome: 'Provas 2026' },
   { key: '2025', nome: 'Provas 2025' },
   { key: 'ineditas', nome: 'Questões inéditas' },
-  { key: 'integradora', nome: 'Prova Integradora' },
+  { key: 'integradora', nome: 'Prova Integradora', separada: true },
 ];
+/* Prova Integradora: avaliação geral das 3 matérias, num bloco próprio abaixo dos cartões (rota sim/geral/integradora) */
+const GERAL = 'geral';
 const LETRAS = ['A', 'B', 'C', 'D', 'E', 'F'];
 const STORE = 'farmaquest:v1';
 const VIEWS = ['simulados', 'treinar', 'flashcards', 'formulas', 'desempenho'];
@@ -5082,6 +5086,7 @@ const simKey = (m, s) => m + '|' + s;
 const getAns = (m, s) => (state.answers[simKey(m, s)] ||= {});
 function baseQs(m, s) {
   if (m === 'treino') { const c = state.custom[s]; return c ? c.ids.map(byId).filter(Boolean) : []; }
+  if (m === GERAL) return window.QUESTOES.filter(q => q.simulado === s);
   return window.QUESTOES.filter(q => q.materia === m && q.simulado === s);
 }
 function questoes(m, s) {
@@ -5111,6 +5116,7 @@ function simNome(m, s) {
 }
 function simSub(m, s) {
   if (m === 'treino') return (state.custom[s] || {}).sub || '';
+  if (m === GERAL) return 'Avaliação geral · ' + Object.values(MATERIAS).map(x => x.sigla).join(', ');
   return MATERIAS[m].nome + ' · ' + MATERIAS[m].prof;
 }
 function ultimos() { const last = {}; state.attempts.forEach(a => { last[a.q] = a.ok; }); return last; }
@@ -5281,9 +5287,8 @@ function viewHome() {
   <div class="grid">`;
   for (const [m, info] of Object.entries(MATERIAS)) {
     h += `<div class="mcard"><div class="mcard-head"><h3>${info.nome}</h3><p>${info.prof}</p></div><div class="mcard-body">`;
-    for (const s of SIMS) {
+    for (const s of SIMS.filter(x => !x.separada)) {
       const qs = baseQs(m, s.key); const ans = getAns(m, s.key);
-      if (!qs.length) continue;
       const feitos = qs.filter(q => ans[q.id] !== undefined).length;
       const label = !feitos ? 'Começar' : feitos === qs.length ? 'Ver resumo' : 'Continuar';
       h += `<div class="sim-row"><div class="info"><div class="t">${s.nome}</div><div class="d">${qs.length} questões</div>
@@ -5292,7 +5297,18 @@ function viewHome() {
     }
     h += `</div></div>`;
   }
-  app.innerHTML = h + `</div>`;
+  h += `</div>`;
+  for (const s of SIMS.filter(x => x.separada)) {
+    const qs = baseQs(GERAL, s.key); if (!qs.length) continue;
+    const ans = getAns(GERAL, s.key);
+    const feitos = qs.filter(q => ans[q.id] !== undefined).length;
+    const label = !feitos ? 'Começar' : feitos === qs.length ? 'Ver resumo' : 'Continuar';
+    h += `<div class="mcard geral-card"><div class="mcard-head"><h3>${s.nome}</h3><p>Avaliação geral de ${Object.values(MATERIAS).map(x => x.nome).join(', ').replace(/, ([^,]*)$/, ' e $1')}</p></div><div class="mcard-body">
+      <div class="sim-row"><div class="info"><div class="t">Simulado completo</div><div class="d">${qs.length} questões · ${feitos} respondidas</div>
+      <div class="pbar"><i style="width:${pct(feitos, qs.length)}%"></i></div></div>
+      <button class="btn small" onclick="abrir('${GERAL}','${s.key}')">${label}</button></div></div></div>`;
+  }
+  app.innerHTML = h;
 }
 
 /* ---------- questão ---------- */
