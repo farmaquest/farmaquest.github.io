@@ -4126,6 +4126,470 @@ Qual o volume médio e a conclusão (supondo que nenhuma unidade ficou abaixo de
 }
 ]);
 
+/* ================= PROVA INTEGRADORA (UNIFSA) — Q11 a Q20: Produção e Controle de Qualidade de Medicamentos na Indústria ================= */
+addQ('cq', 'integradora', 'Integradora', [
+{
+  id: 'INT-11', origem: 'Prova Integradora (Q11)', assunto: 'Intercambialidade e bioequivalência',
+  enun: `Durante uma entrevista para a TV, você é convidado a tirar dúvidas sobre o tema intercambialidade. Porém, o entrevistador se atrapalhou e fez algumas considerações questionáveis sobre o tema. Analise as afirmativas a seguir e assinale a alternativa que contém todas as afirmações corretas:
+
+I. Os estudos de equivalência farmacêutica antecedem o estudo de biodisponibilidade, quando este for aplicável, sendo o primeiro realizado in vitro e o segundo in vivo.
+II. É possível intercambiar medicamentos que contêm o mesmo fármaco, na mesma dose, sob a mesma forma farmacêutica, administrados pela mesma via, que cumpram os requisitos de qualidade farmacopeicos e sejam bioequivalentes.
+III. No caso de uma prescrição contendo um medicamento similar, por exemplo, o paciente poderá optar por adquirir o genérico, similar ou referência, de acordo com a conveniência.
+IV. Durante os testes de bioequivalência, os medicamentos são analisados em grupos de voluntários, os quais serão monitorados a partir da quantificação do fármaco nas amostras biológicas e nos sinais clínicos que apresentarem.
+V. Os medicamentos, independentemente da origem (sintéticos, biológicos ou fitoterápicos), possuem opções disponíveis de genéricos e similares, lançados ao expirar a patente do medicamento de referência.`,
+  alts: ['Apenas I e III.', 'Apenas I e II.', 'Apenas III, IV e V.', 'Apenas II, III e V.', 'Apenas I, II e IV.'],
+  c: 'E',
+  e: [
+    'Errada. III é falsa: a intercambialidade é entre referência e genérico (ou similar intercambiável e seu referência). Não há troca livre "por conveniência" a partir de um similar prescrito.',
+    'Errada. I e II são verdadeiras, mas a IV também é: faltou incluí-la.',
+    'Errada. III e V são falsas.',
+    'Errada. III e V são falsas.',
+    'Correta. I (V): equivalência farmacêutica (in vitro) vem antes da bioequivalência (in vivo). II (V): é o conceito de medicamentos intercambiáveis. IV (V): o estudo é feito em voluntários, com quantificação do fármaco em amostras biológicas (farmacocinética) e acompanhamento clínico. III (F) e V (F): biológicos não têm genéricos (têm biossimilares, por via de comparabilidade) e fitoterápicos também não.'
+  ],
+  obs: 'Gabarito montado a partir do conteúdo, sem gabarito oficial. Ponto de atenção: o parâmetro do estudo de bioequivalência é farmacocinético (quantificação do fármaco); o monitoramento clínico dos voluntários é de segurança.',
+  fonte: 'Lei nº 9.787/1999 (genéricos); normas da Anvisa sobre equivalência farmacêutica e bioequivalência.'
+},
+{
+  id: 'INT-12', origem: 'Prova Integradora (Q12)', assunto: 'CQ de matérias-primas: identificação e pureza',
+  enun: `Ao receber um lote de extrato seco de Curcuma longa (Açafrão) em sua farmácia magistral, você observou que o laudo do fornecedor continha os seguintes ensaios com seus respectivos resultados e valores de referência: aspecto; análise granulométrica; análise microscópica; perda por secagem; metais pesados; teor de curcuminoides (marcador fitoquímico); cinzas insolúveis em ácido; contagem de bactérias e fungos; pesquisa de patógenos. Sobre a situação acima, assinale a alternativa correta:`,
+  alts: [
+    'Caso a contagem de bactérias e fungos resulte em valores abaixo do limite especificado, não seria necessário realizar a pesquisa de patógenos.',
+    'O aspecto e a análise microscópica são importantes ensaios para garantir a identidade do material recebido.',
+    'As análises perda por secagem, metais pesados e teor de curcuminoides são consideradas ensaios de pureza, pois visam a determinação de contaminantes na amostra.',
+    'A fim de determinar o conteúdo de matéria orgânica volátil aplica-se o ensaio cinzas insolúveis em ácido, o qual é considerado semiquantitativo.',
+    'A perda por secagem corresponde a um ensaio-limite que visa a determinação qualitativa de água na matéria-prima mediante uma reação química.'
+  ],
+  c: 'B',
+  e: [
+    'Errada. A pesquisa de patógenos é independente da contagem total: mesmo com contagem baixa, um patógeno específico (ex.: Salmonella, E. coli) pode estar presente.',
+    'Correta. Aspecto (características organolépticas) e análise microscópica (estruturas vegetais típicas) são ensaios de identificação do insumo vegetal.',
+    'Errada. Perda por secagem e metais pesados são de pureza, mas o teor de curcuminoides é doseamento do marcador (ensaio de teor/potência), não de pureza.',
+    'Errada. Cinzas insolúveis em ácido avaliam o resíduo inorgânico (principalmente sílica, terra, areia), não matéria orgânica volátil.',
+    'Errada. A perda por secagem é gravimétrica e quantitativa (perda de massa por aquecimento: água e voláteis), sem reação química. Determinação específica de água por reação química é o Karl Fischer.'
+  ],
+  fonte: 'Farmacopeia Brasileira (métodos de farmacognosia: perda por secagem, cinzas, metais pesados; ensaios microbiológicos).'
+},
+{
+  id: 'INT-13', origem: 'Prova Integradora (Q13)', assunto: 'Cromatografia (CCD, CLAE e CG)',
+  enun: `A pregabalina é um fármaco indicado no tratamento da dor neuropática causada por lesão ou mau funcionamento dos nervos ou do sistema nervoso; na terapia adjunta de crises epilépticas parciais, com ou sem generalizações secundárias; no tratamento do Transtorno da Ansiedade Generalizada (TAG); e no controle da fibromialgia. No mercado, pode ser encontrada nas apresentações de cápsulas contendo 75 ou 150 mg do ativo. Um estudo validou o doseamento das cápsulas de pregabalina em cromatografia líquida de alta eficiência (CLAE). A fase móvel consistiu em tampão de hidrogenofosfato dissódico:acetonitrila:metanol na razão 80:10:10 (v/v/v). A coluna utilizada foi ODS-3V-C18 (250 mm x 4,6 mm x 5 µm). O comprimento de onda foi 210 nm.
+
+Na prova, as figuras mostravam: Figura A, o cromatograma do padrão; Figura B, o cromatograma da amostra (ambos com o pico da pregabalina no mesmo tempo de retenção, entre 2,5 e 5 min); e Figura C, a curva de linearidade (área × concentração em mg/mL, de 0 a cerca de 0,4 mg/mL, com áreas de 0 a cerca de 200 000; y = 525658x + b; R² = 0,9996).
+
+Considerando as informações apresentadas, assinale a opção correta.`,
+  alts: [
+    'A análise da amostra e do padrão visam comparar o tempo de retenção obtido, o qual deve ser semelhante para a mesma substância, analisada nas mesmas condições.',
+    'O cromatograma da amostra das cápsulas permite confirmar a identidade da substância, mas não será possível quantificá-la por essa técnica.',
+    'As amostras injetadas com área igual a 150 000 estão fora da faixa de trabalho (intervalo) do método desenvolvido, devendo ser mais diluídas.',
+    'A análise foi realizada pela técnica de CLAE em coluna de fase normal (polar).',
+    'A figura C indica que o método apresenta robustez, ou seja, os resultados obtidos são reprodutíveis após uma série de repetições realizadas por um mesmo analista.'
+  ],
+  c: 'A',
+  e: [
+    'Correta. Na CLAE, a identificação é feita comparando o tempo de retenção da amostra com o do padrão, nas mesmas condições cromatográficas.',
+    'Errada. A CLAE identifica (tempo de retenção) e também quantifica (área do pico comparada à curva de calibração). Foi justamente um doseamento.',
+    'Errada. A curva vai até cerca de 200 000 de área; 150 000 está dentro do intervalo, então não precisa diluir.',
+    'Errada. Coluna C18 (octadecilsilano, apolar) com fase móvel polar = fase reversa.',
+    'Errada. A figura C mostra linearidade (R² próximo de 1). Robustez é a resistência a pequenas variações do método, e repetições por um mesmo analista avaliam a precisão (repetibilidade).'
+  ],
+  fonte: 'SEEMA, A.; JEEJA, P.; ASHISH, J. Pharm Anal Acta, v. 7, 2016 (adaptado); RDC 166/2017 (validação de métodos analíticos).'
+},
+{
+  id: 'INT-14', origem: 'Prova Integradora (Q14)', assunto: 'Cálculos de controle de qualidade',
+  enun: `Uma amostra de matéria-prima de pantoprazol sódico (MP1) foi adquirida de uma nova empresa fornecedora. O teor de água nas matérias-primas foi previamente determinado pelo método de Karl Fischer. O doseamento da amostra foi realizado por titulação. A matéria-prima foi pesada em béquer, solubilizada em 50 mL de etanol 96% V/V, adicionada de uma gota de azul de bromofenol 0,1% SI e titulada diretamente com ácido clorídrico 0,1 M SV (Fator de correção = 0,98), por meio de bureta. Cada mL de ácido clorídrico 0,1 M SV corresponde a 40,535 mg de pantoprazol sódico anidro. A faixa de especificação é 98,0% a 102,0% em relação à substância anidra.
+
+Dados da MP1: água = 4,0%; massa da amostra = 350,0 mg; volume consumido de HCl = 8,0 mL.
+
+A partir dos princípios das técnicas e dados da questão, julgue as afirmativas abaixo:
+I. A determinação prévia de água não era relevante para o doseamento das amostras.
+II. O método de Karl Fischer é considerado um método volumétrico de pureza, ou seja, por meio de titulação quantifica a impureza (água).
+III. O doseamento das matérias-primas foi realizado empregando-se um método clássico de quantificação.
+IV. Ao dessecar a amostra MP1 antes de analisá-la, o resultado obtido encontra-se fora da especificação.
+V. No doseamento descrito, o titulante foi o pantoprazol sódico, o titulado o ácido clorídrico 0,1 M e o indicador foi o azul de bromotimol 0,1%.
+
+É correto o que se afirma em:`,
+  alts: ['Apenas III e V.', 'Apenas I e III.', 'Apenas I, II e IV.', 'Apenas II, III e IV.', 'Apenas II, IV e V.'],
+  c: 'D',
+  e: [
+    'Errada. V é falsa (titulante e titulado estão invertidos, e o indicador é o azul de bromoFENOL).',
+    'Errada. I é falsa: a água é necessária para expressar o teor em relação à substância anidra.',
+    'Errada. I é falsa.',
+    'Correta. II (V), III (V) e IV (V). Cálculo: 8,0 × 0,98 × 40,535 = 317,8 mg encontrados. Base anidra = 350,0 × (1 − 0,04) = 336,0 mg. Teor = 317,8 ÷ 336,0 × 100 = 94,6%, fora de 98,0–102,0%.',
+    'Errada. V é falsa.'
+  ],
+  obs: 'Mesma estrutura da questão da 1ª VA de 2025 (CQ). Fórmula: teor (%) = (V × f × equivalente) ÷ (massa × (1 − %água)) × 100.',
+  fonte: 'Cap. 3 – Técnicas clássicas (Karl Fischer volumétrico; acidimetria/alcalimetria).'
+},
+{
+  id: 'INT-15', origem: 'Prova Integradora (Q15)', assunto: 'Ensaios físicos de formas farmacêuticas',
+  enun: `Em uma indústria, foi preparada a seguinte fórmula de um xarope de guaco (Mikania glomerata):
+- Extrato hidroalcoólico de guaco .......... 20% (v/v)
+- Xarope simples .......... qsp 1000 L
+
+A formulação foi entregue ao técnico do controle de qualidade para realizar a determinação da densidade do xarope, a partir da qual autorizaria o envase em frascos de 100 mL. Para a determinação da densidade, o técnico utilizou um instrumento específico para essa finalidade e uma balança analítica. Os dados da realização da densidade foram os seguintes:
+- Massa do instrumento vazio: 50 g
+- Massa do instrumento preenchido com o xarope: 100 g
+- Volume do instrumento: 25 mL
+
+Assinale a alternativa que descreve corretamente e respectivamente o nome do instrumento utilizado no ensaio, a densidade em g/mL obtida para o produto e qual foi o tipo de ensaio realizado:`,
+  alts: [
+    'Picnômetro; 2 g/mL; físico.',
+    'Friabilômetro; 0,2 g/mL; químico.',
+    'Durômetro; 1 g/mL; físico.',
+    'Polarímetro; 0,1 g/mL; químico.',
+    'Refratômetro; 0,5 g/mL; químico.'
+  ],
+  c: 'A',
+  e: [
+    'Correta. Densidade com picnômetro: (100 − 50) g ÷ 25 mL = 2 g/mL. É um ensaio físico.',
+    'Errada. Friabilômetro mede a friabilidade de comprimidos (resistência à abrasão).',
+    'Errada. Durômetro mede a dureza de comprimidos; a densidade também está errada.',
+    'Errada. Polarímetro mede o desvio da luz polarizada (rotação óptica).',
+    'Errada. Refratômetro mede o índice de refração.'
+  ],
+  fonte: 'Farmacopeia Brasileira (densidade de massa e densidade relativa); "Cap. Ensaios Físicos Líquidos e Semissólidos".'
+},
+{
+  id: 'INT-16', origem: 'Prova Integradora (Q16)', assunto: 'Água para uso farmacêutico',
+  enun: `Na indústria farmacêutica, o controle da água de uso farmacêutico é essencial para garantir a qualidade e segurança dos produtos. Considerando os tipos de água empregados e os ensaios realizados para seu controle de qualidade, assinale a alternativa CORRETA:`,
+  alts: [
+    'A água purificada (AP) é obtida por osmose reversa e utilizada exclusivamente na produção de medicamentos injetáveis, devendo atender aos limites de endotoxinas bacterianas estabelecidos pela Farmacopeia Brasileira.',
+    'A água purificada (AP) é destinada à formulação de medicamentos não estéreis e ao preparo de reagentes, devendo atender aos testes de condutividade elétrica, carbono orgânico total (TOC), e contagem microbiana, além de ser isenta de patógenos.',
+    'A água para injetáveis (API) pode ser produzida por destilação ou osmose reversa simples, devendo apresentar teor elevado de sólidos dissolvidos, como minerais, para garantir isotonicidade.',
+    'A água purificada obtida por destilação simples apresenta elevada condutividade elétrica devido à alta concentração de íons residuais provenientes do processo térmico.',
+    'O teste de TOC (Carbono Orgânico Total) é realizado apenas em águas potáveis, pois avalia a presença de íons metálicos que interferem na pureza química, permitindo identificar a água "dura".'
+  ],
+  c: 'B',
+  e: [
+    'Errada. Injetáveis usam água para injetáveis (API), não água purificada.',
+    'Correta. A AP é usada em não estéreis e no preparo de reagentes, com controle de condutividade, TOC e contagem microbiana.',
+    'Errada. A API deve ter baixíssimo teor de sólidos dissolvidos; a isotonicidade é ajustada na formulação, não pela água.',
+    'Errada. A destilação remove íons, então a água destilada tem baixa condutividade.',
+    'Errada. O TOC mede a contaminação por matéria orgânica (não íons metálicos) e é aplicado às águas purificada e para injetáveis.'
+  ],
+  fonte: 'Farmacopeia Brasileira (água para uso farmacêutico); RDC 658/2022.'
+},
+{
+  id: 'INT-17', origem: 'Prova Integradora (Q17)', assunto: 'Medicamentos biológicos e biossimilares',
+  enun: `Para os medicamentos biológicos e biossimilares, a farmacovigilância é imprescindível, pois, dada a alta sensibilidade dos medicamentos, alterações nos métodos de produção ou impurezas podem aumentar a probabilidade de provocar uma resposta imune, tornando difícil prever suas reações adversas. De forma a minimizar esses eventos, deve ser considerado pelo controle de qualidade o seguinte:`,
+  alts: [
+    'A via de comparabilidade é utilizada para os medicamentos biossimilares e exige demonstração de similaridade em qualidade, segurança e eficácia em relação ao produto de referência.',
+    'A denominação medicamentos biológicos significa que os medicamentos dessa categoria correspondem a seres vivos, ou seja, linhagens celulares administradas para fins terapêuticos.',
+    'A escolha do vetor responsável pela produção do IFA de um medicamento biológico não é relevante, pois apenas parte do conteúdo celular será administrado (ex. proteínas, enzimas, etc).',
+    'A imunogenicidade não é considerada nos estudos clínicos de comparabilidade, pois os biossimilares possuem estruturas idênticas às dos biológicos de referência.',
+    'A avaliação da imunogenicidade é dispensável quando o biossimilar é aprovado pela via de desenvolvimento individual.'
+  ],
+  c: 'A',
+  e: [
+    'Correta. Pela via de desenvolvimento por comparabilidade, o biossimilar deve demonstrar similaridade em qualidade, segurança e eficácia com o biológico de referência.',
+    'Errada. Biológicos são moléculas obtidas a partir de fontes biológicas (ex.: proteínas recombinantes); não são células vivas administradas.',
+    'Errada. O sistema de expressão (vetor/linhagem) influencia a estrutura, as modificações pós-traducionais e as impurezas, logo afeta a imunogenicidade.',
+    'Errada. Biossimilares são semelhantes, não idênticos; a imunogenicidade é sempre avaliada.',
+    'Errada. A imunogenicidade deve ser avaliada em qualquer via de registro.'
+  ],
+  fonte: 'RDC nº 55/2010 (registro de produtos biológicos: vias de desenvolvimento individual e por comparabilidade).'
+},
+{
+  id: 'INT-18', origem: 'Prova Integradora (Q18)', assunto: 'Estabilidade e degradação',
+  enun: `Considere que uma indústria farmacêutica brasileira está submetendo ao registro um medicamento genérico sólido na forma de comprimido, e precisa adequar-se às exigências da RDC 318/2019. Sobre os estudos de estabilidade previstos nessa norma, assinale a alternativa correta:`,
+  alts: [
+    'A RDC 318/2019 não exige estudos de estabilidade para medicamentos acondicionados em frascos multidose, já que a rotulagem resolveria qualquer variação após abertura da embalagem.',
+    'O estudo de estabilidade de longa duração para o medicamento genérico deve prever ensaios no tempo inicial, depois a cada 3 e 6 meses.',
+    'A escolha do material de embalagem pode ser realizada após a conclusão do estudo de estabilidade, tendo em vista que não afetará significativamente os resultados obtidos.',
+    'A análise dos comprimidos não envolverá parâmetros como dureza e friabilidade, pois durante os estudos de estabilidade somente é necessário comprovar a integridade do IFA na formulação.',
+    'A empresa deve seguir as condições climáticas relacionadas à Zona IVB (quente e muito úmida), aplicáveis ao Brasil, para definir a temperatura e umidade nas quais os produtos deverão ser mantidos durante o estudo.'
+  ],
+  c: 'E',
+  e: [
+    'Errada. Produtos multidose exigem inclusive estudo de estabilidade em uso (após abertura).',
+    'Errada. No longa duração, os pontos são 0, 3, 6, 9, 12, 18 e 24 meses (e depois anualmente), não só 3 e 6 meses. 0, 3 e 6 meses é o cronograma do estudo acelerado.',
+    'Errada. O estudo deve ser feito na embalagem definitiva, pois ela influencia a estabilidade (umidade, luz, oxigênio).',
+    'Errada. Atributos físicos como dureza, friabilidade e dissolução também devem ser monitorados.',
+    'Correta. O Brasil é classificado na Zona climática IVb (quente e muito úmida): longa duração a 30 °C ± 2 °C / 75% ± 5% UR.'
+  ],
+  fonte: 'RDC 318/2019 (estudos de estabilidade); Guia Anvisa nº 28/2019.'
+},
+{
+  id: 'INT-19', origem: 'Prova Integradora (Q19)', assunto: 'Controle microbiológico',
+  enun: `Durante a rotina de controle de qualidade, um laboratório detectou crescimento microbiano em um lote de xarope antitussígeno antes de seu prazo de validade. A equipe de garantia da qualidade iniciou uma investigação para verificar se os limites microbiológicos adotados estavam de acordo com as especificações da Farmacopeia Brasileira. Com base nas normas vigentes, assinale a alternativa correta:`,
+  alts: [
+    'Medicamentos não estéreis não exigem controle microbiológico, desde que contenham conservantes antimicrobianos.',
+    'O controle microbiológico de medicamentos não estéreis é realizado apenas para detecção de bactérias patogênicas específicas, como Escherichia coli e Staphylococcus aureus.',
+    'O controle microbiológico de medicamentos não estéreis deve incluir a contagem total de bactérias e de fungos, além da pesquisa de microrganismos patogênicos específicos.',
+    'Somente a contagem de microrganismos viáveis é exigida para medicamentos na forma farmacêutica xarope, tendo em vista que não haver risco de contaminação em produtos com alta atividade de água.',
+    'O teste de endotoxinas bacterianas é obrigatório para todos os medicamentos não estéreis, incluindo o xarope do enunciado.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Conservantes não dispensam o controle microbiológico.',
+    'Errada. Inclui também a contagem total de bactérias aeróbias e de fungos/leveduras.',
+    'Correta. Não estéreis: contagem de bactérias aeróbias totais, contagem de fungos e leveduras e pesquisa de patógenos específicos.',
+    'Errada. A alta atividade de água aumenta o risco de contaminação, e a pesquisa de patógenos também é exigida.',
+    'Errada. Endotoxinas são exigidas para parenterais e alguns produtos estéreis, não para não estéreis como xarope.'
+  ],
+  fonte: 'Farmacopeia Brasileira (ensaios microbiológicos para produtos não estéreis).'
+},
+{
+  id: 'INT-20', origem: 'Prova Integradora (Q20)', assunto: 'Controle microbiológico',
+  enun: `Uma indústria farmacêutica que fabrica soluções parenterais de grande volume observou, durante o controle de rotina, crescimento de microrganismos em um dos frascos submetidos ao teste de esterilidade. A equipe de qualidade iniciou investigação conforme as Boas Práticas de Fabricação. Com base na regulamentação vigente, assinale a alternativa correta sobre o controle microbiológico de medicamentos estéreis:`,
+  alts: [
+    'A produção de medicamentos estéreis requer que ao final de sua produção haja a aplicação de uma técnica de esterilização, como radiação ou filtração.',
+    'O teste de esterilidade pode ser substituído por análises visuais e físico-químicas, desde que o processo de filtração final seja asséptico.',
+    'O uso de conservantes antimicrobianos dispensa a necessidade de realização do teste de esterilidade em preparações sólidas e semissólidas.',
+    'O teste de esterilidade deve ser realizado em condições assépticas, com amostragem representativa e incubação em meios de cultura por pelo menos 14 dias.',
+    'A pesquisa de pirogênios (exógeno) e endotoxinas (endógeno) é exigida em todos os medicamentos estéreis, pois determinam contaminantes de origens distintas.'
+  ],
+  c: 'D',
+  e: [
+    'Errada. Nem sempre há esterilização terminal: produtos sensíveis são fabricados por processamento asséptico.',
+    'Errada. Análises visuais e físico-químicas não substituem o teste de esterilidade.',
+    'Errada. Conservantes não dispensam o teste de esterilidade de um produto declarado estéril.',
+    'Correta. O teste de esterilidade é feito em ambiente asséptico, com amostragem representativa e incubação por no mínimo 14 dias.',
+    'Errada. Endotoxinas são um tipo de pirogênio (de bactérias Gram-negativas), e as exigências variam conforme o produto, não valendo para todo estéril.'
+  ],
+  fonte: 'Farmacopeia Brasileira (teste de esterilidade); RDC 658/2022 (BPF).'
+}
+]);
+
+/* ================= PROVA INTEGRADORA (UNIFSA) — Q21 a Q30: Cuidados Farmacêuticos II ================= */
+addQ('cf', 'integradora', 'Integradora', [
+{
+  id: 'INT-21', origem: 'Prova Integradora (Q21)', assunto: 'Telefarmácia e intercambialidade',
+  enun: `Uma paciente realiza um atendimento por telefarmácia síncrona, conforme autorizado pela Resolução CFF nº 727/2022, buscando esclarecimentos sobre a prescrição recebida. O medicamento indicado pelo médico é um medicamento de referência, porém o custo elevado dificultará o tratamento. A paciente pergunta ao farmacêutico se pode adquirir uma alternativa mais acessível com o mesmo princípio ativo.
+Durante o atendimento remoto, o farmacêutico explica as diferenças entre medicamentos de referência, genéricos e similares, considerando:
+Com base nesse contexto e na legislação aplicável, assinale a alternativa correta:`,
+  alts: [
+    'De acordo com a Lei nº 5.991/73, o farmacêutico somente pode substituir o medicamento de referência mediante autorização do prescritor, mesmo quando o genérico possui critérios de equivalência estabelecidos pela Lei nº 9.787/99, não havendo previsão ética que garanta autonomia técnica ao profissional.',
+    'A Lei nº 9.787/99 e a RDC nº 98/2016 autorizam que os medicamentos similares sejam automaticamente intercambiáveis com os de referência, e o Código de Ética Farmacêutica permite que tais substituições ocorram sem necessidade de esclarecimento à paciente durante a telefarmácia.',
+    'O farmacêutico pode realizar a intercambialidade entre medicamento de referência e genérico (inclusive em atendimento remoto regulamentado pela Resolução CFF nº 727/2022), desde que o genérico tenha comprovação de bioequivalência conforme a Lei nº 9.787/99. Além disso, deve cumprir o Código de Ética Farmacêutica, oferecendo informação clara e garantindo decisão segura à paciente, lembrando que substâncias da Portaria nº 344/1998 não podem ser substituídas automaticamente.',
+    'A Portaria nº 344/1998 permite que medicamentos controlados possam ser substituídos por genéricos ou similares desde que haja registro válido, e o Código de Ética autoriza tais substituições como forma de ampliar o acesso, mesmo sem avaliação técnica da equivalência.',
+    'A Lei nº 5.991/73 e o Código de Ética Farmacêutica determinam que genéricos e similares são equivalentes entre si, permitindo substituição imediata pelo farmacêutico em qualquer atendimento, inclusive no âmbito da telefarmácia, independentemente dos critérios da RDC nº 98/2016.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. A Lei 9.787/99 permite ao farmacêutico trocar referência por genérico sem autorização do prescritor (salvo restrição expressa na receita).',
+    'Errada. Similar não é automaticamente intercambiável (só o similar intercambiável, e com o seu referência), e o paciente deve sempre ser informado.',
+    'Correta. Troca referência ↔ genérico com bioequivalência comprovada, informação clara à paciente e atenção às restrições para controlados.',
+    'Errada. A troca exige equivalência comprovada; o Código de Ética não autoriza substituição sem avaliação técnica.',
+    'Errada. Genérico e similar não são automaticamente intercambiáveis entre si.'
+  ],
+  fonte: 'Lei nº 9.787/1999; Resolução CFF nº 727/2022 (telefarmácia); Código de Ética Farmacêutica; Portaria SVS/MS nº 344/1998.'
+},
+{
+  id: 'INT-22', origem: 'Prova Integradora (Q22)', assunto: 'Ética e interações medicamentosas',
+  enun: `Uma paciente de 67 anos, portadora de insuficiência cardíaca e fibrilação atrial, utiliza varfarina com controle estável de INR. Durante uma visita à farmácia comunitária, ela relata sangramentos gengivais após iniciar, por conta própria, um fitoterápico recomendado por um influenciador digital. Ao analisar a composição do produto, o farmacêutico identifica substâncias com forte potencial de interação com varfarina, aumentando significativamente o risco de hemorragia.
+No entanto, o estabelecimento possui metas agressivas de venda de produtos naturais e nutracêuticos. O gerente, que está presente no balcão, orienta o farmacêutico a evitar alarmar a paciente, sugerindo que minimize os riscos e ofereça um fitoterápico alternativo, alegando que isso "evitaria perder a venda".
+O farmacêutico percebe um conflito entre sua responsabilidade profissional e a pressão comercial imposta pelo gerente.
+Com base no caso clínico e nos princípios éticos que regem a atuação farmacêutica, assinale a alternativa correta:`,
+  alts: [
+    'O farmacêutico pode seguir a orientação do gerente e reduzir as informações sobre o risco da interação, desde que recomende um produto registrado na Anvisa, evitando comprometer a relação de trabalho.',
+    'Para manter o equilíbrio entre interesses comerciais e clínicos, o farmacêutico pode apenas aconselhar a paciente a reduzir a dose do fitoterápico, sem necessidade de discutir potenciais interações graves, já que ela não apresentou hemorragias significativas.',
+    'A conduta correta é alertar a paciente sobre o risco da interação entre o fitoterápico e a varfarina, orientar a suspensão imediata do produto e encaminhar para avaliação médica; omitir tais informações representa falha ética grave, pois coloca interesses comerciais acima da segurança da paciente.',
+    'O farmacêutico pode recomendar outro fitoterápico considerado "mais seguro", pois sua função ética é facilitar o acesso a alternativas naturais, desde que não envolvam medicamentos controlados.',
+    'O gerente, como responsável administrativo, pode interferir no conteúdo da orientação farmacêutica, permitindo que o profissional reduza a explicação técnica desde que haja registro sanitário do produto vendido.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Omitir risco à saúde por interesse comercial é infração ética.',
+    'Errada. Sangramento gengival já é sinal de alerta; a interação precisa ser explicada e o produto suspenso.',
+    'Correta. Segurança da paciente acima de interesses comerciais: alertar, suspender o fitoterápico e encaminhar ao médico (avaliar INR).',
+    'Errada. Trocar por outro produto sem avaliação e sem encaminhar não resolve o risco e mantém o foco na venda.',
+    'Errada. A autonomia técnica do farmacêutico não pode ser limitada por gestores leigos.'
+  ],
+  fonte: 'Código de Ética Farmacêutica (Resolução CFF nº 724/2022); Lei nº 13.021/2014.'
+},
+{
+  id: 'INT-23', origem: 'Prova Integradora (Q23)', assunto: 'Resoluções CFF 585 e 586/2013',
+  enun: `Em uma manhã de segunda-feira, no consultório farmacêutico vinculado a uma Unidade Básica de Saúde, chega um paciente de 29 anos, estudante universitário e trabalhador em regime de escala. Ele relata que, nos últimos dois dias, apresentou dor de garganta moderada, sensação de ardência ao engolir, febre baixa (máximo de 37,8 °C), fadiga leve e coriza discreta. Preocupado com o acúmulo de atividades acadêmicas e com o trabalho, afirma que "não pode ficar doente" e solicita diretamente um antibiótico, dizendo que "da outra vez tomou um e melhorou rápido".
+
+Durante a anamnese inicial, o farmacêutico percebe que o paciente não apresenta sinais de alarme, não refere dificuldade respiratória, não apresenta placas purulentas, consegue se alimentar normalmente e relata histórico recorrente de episódios virais semelhantes, sobretudo em períodos de estresse e privação de sono.
+
+Considerando a Resolução CFF nº 585/2013, que define as atribuições clínicas do farmacêutico, e o manejo de problemas de saúde autolimitados:`,
+  alts: [
+    'Recomendar antibiótico de amplo espectro para evitar agravamento do quadro.',
+    'Avaliar os sinais e sintomas, tratar como condição autolimitada, orientar medidas não farmacológicas, prescrever MIPs quando indicados e reforçar sinais de alerta.',
+    'Encaminhar de imediato ao médico, pois o farmacêutico não pode atuar clinicamente nessas situações.',
+    'Indicar AINEs e antitérmicos sem registro de atendimento.',
+    'Recomendar apenas fitoterápicos sem realizar avaliação clínica.'
+  ],
+  c: 'B',
+  e: [
+    'Errada. Antibiótico exige prescrição médica e não é indicado em quadro viral.',
+    'Correta. Manejo de problema de saúde autolimitado: avaliação, medidas não farmacológicas, MIPs e orientação sobre sinais de alerta.',
+    'Errada. O farmacêutico tem atribuição clínica para manejar problemas autolimitados (Res. 585 e 586/2013).',
+    'Errada. Todo atendimento clínico deve ser registrado.',
+    'Errada. Toda recomendação deve ser precedida de avaliação clínica.'
+  ],
+  fonte: 'Resoluções CFF nº 585/2013 (atribuições clínicas) e 586/2013 (prescrição farmacêutica).'
+},
+{
+  id: 'INT-24', origem: 'Prova Integradora (Q24)', assunto: 'Dispensação e Farmácia Especializada',
+  enun: `Durante o atendimento na farmácia comunitária, um senhor de 72 anos chega à dispensação com uma receita contendo metformina 850 mg. Ele conta que recebeu o diagnóstico de diabetes tipo 2 há cerca de três meses e ainda está se adaptando ao tratamento. Demonstra confusão sobre como tomar o medicamento, relatando que às vezes usa antes de comer, outras vezes depois, e que em alguns dias acaba esquecendo a segunda dose.
+
+Durante a conversa, menciona episódios de desconforto gástrico e relata que tem dificuldade em compreender as orientações médicas por conta de problemas auditivos e baixa escolaridade. A filha, que costuma ajudar com a organização dos medicamentos, não estava presente.
+
+Considerando que a dispensação é um ato clínico previsto na Resolução CFF nº 585/2013 e envolve avaliação, orientação e registro:`,
+  alts: [
+    'Entregar rapidamente o medicamento, evitando atrasos na fila.',
+    'Encaminhar ao médico para que ele esclareça todas as dúvidas.',
+    'Conferir a prescrição, avaliar riscos, orientar detalhadamente sobre uso correto, horários, efeitos adversos e registrar o atendimento para seguimento.',
+    'Apenas repetir a posologia indicada na receita.',
+    'Substituir o medicamento por dosagem diferente se não houver 850 mg disponível.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Ignora os problemas de adesão e de compreensão relatados.',
+    'Errada. Orientar o uso do medicamento é atribuição do farmacêutico na dispensação.',
+    'Correta. Dispensação como ato clínico: avaliar, orientar (tomar com ou após as refeições reduz o desconforto gástrico), adaptar a linguagem e registrar para seguimento.',
+    'Errada. Só repetir a posologia não resolve a confusão nem o desconforto gástrico.',
+    'Errada. Mudar a dose sem avaliação e sem o prescritor é inadequado.'
+  ],
+  fonte: 'Resolução CFF nº 585/2013; material de Cuidado Farmacêutico (dispensação).'
+},
+{
+  id: 'INT-25', origem: 'Prova Integradora (Q25)', assunto: 'Educação em saúde e prática baseada em evidências',
+  enun: `Uma farmacêutica de uma Unidade Básica de Saúde foi convidada a integrar uma campanha de prevenção e controle da hipertensão arterial voltada principalmente para idosos e agentes comunitários de saúde. O bairro atendido possui população vulnerável, com dificuldades de acesso à informação e baixo nível de escolaridade, e muitos idosos relatam desconhecimento sobre a doença, uso incorreto de medicamentos e hábitos prejudiciais à saúde.
+
+Durante o planejamento, discutem-se diferentes abordagens: palestras tradicionais, rodas de conversa, oficinas, visitas domiciliares e atividades lúdicas. A farmacêutica percebe que a maior parte dos participantes aprende melhor com dinâmicas práticas, exemplos do cotidiano e troca de experiências. Além disso, considera importante estimular autonomia e corresponsabilidade dos usuários no cuidado à saúde, valorizando suas vivências.
+
+Qual estratégia representa uma atuação efetiva e eticamente adequada?`,
+  alts: [
+    'Realizar palestra expositiva utilizando linguagem técnica e artigos científicos.',
+    'Conduzir atividades educativas dialogadas, valorizando saber popular, promovendo autocuidado e usando recursos acessíveis e lúdicos.',
+    'Focar apenas nos medicamentos disponíveis na UBS.',
+    'Distribuir cartilhas sem interação presencial.',
+    'Deixar a condução para outros profissionais e atuar apenas no fornecimento de medicamentos.'
+  ],
+  c: 'B',
+  e: [
+    'Errada. Linguagem técnica não se adequa a um público de baixa escolaridade.',
+    'Correta. Educação em saúde dialógica: valoriza o saber popular, promove autonomia e usa recursos acessíveis.',
+    'Errada. A educação em saúde é mais ampla que os medicamentos (hábitos, prevenção).',
+    'Errada. Sem interação, o material é pouco efetivo para essa população.',
+    'Errada. Educação em saúde é atribuição clínica do farmacêutico.'
+  ],
+  fonte: 'Resolução CFF nº 585/2013 (educação em saúde); material de Cuidado Farmacêutico.'
+},
+{
+  id: 'INT-26', origem: 'Prova Integradora (Q26)', assunto: 'Acompanhamento farmacoterapêutico',
+  enun: `Uma mulher de 38 anos, com diagnóstico de asma persistente leve, participa de acompanhamento farmacoterapêutico mensal. Durante a consulta, a farmacêutica percebe que a paciente apresenta dificuldade para utilizar o dispositivo inalatório, aplica a técnica de forma incorreta, não identifica a diferença entre o medicamento de manutenção e o broncodilatador de resgate e admite usar o inalador apenas "quando lembra" ou quando sente falta de ar.
+
+Além disso, relata que abandonou o tratamento por algumas semanas ao se sentir melhor, mas posteriormente apresentou exacerbação. Sente-se insegura e confusa com o uso dos dispositivos e relata vergonha de perguntar na consulta médica por achar que deveria "saber usar".
+
+Com base em diretrizes de cuidado farmacêutico e construção de plano terapêutico individualizado:`,
+  alts: [
+    'Estabelecer metas compartilhadas, reorientar técnica inalatória, reforçar importância do tratamento contínuo, monitorar evolução e registrar todo o processo.',
+    'Encaminhar diretamente ao pneumologista sem realizar intervenções.',
+    'Orientar verbalmente e entregar folheto educativo sem demonstrações práticas.',
+    'Alterar por conta própria o medicamento de manutenção.',
+    'Orientar a suspender o controle em períodos sem sintomas.'
+  ],
+  c: 'A',
+  e: [
+    'Correta. Plano individualizado: metas compartilhadas, treino da técnica inalatória (com demonstração), adesão ao tratamento de manutenção, seguimento e registro.',
+    'Errada. O farmacêutico pode e deve intervir na técnica e na adesão.',
+    'Errada. A técnica inalatória exige demonstração prática e checagem do uso pela paciente.',
+    'Errada. Trocar o medicamento sem o prescritor é inadequado.',
+    'Errada. Suspender a manutenção na ausência de sintomas foi justamente o que causou a exacerbação.'
+  ],
+  fonte: 'Material de Cuidado Farmacêutico (acompanhamento farmacoterapêutico; plano de cuidado).'
+},
+{
+  id: 'INT-27', origem: 'Prova Integradora (Q27)', assunto: 'Acompanhamento farmacoterapêutico',
+  enun: `Durante o seguimento farmacoterapêutico em uma USF, um paciente de 56 anos, recém-iniciado em um anti-hipertensivo, relata episódios frequentes de tontura, principalmente ao levantar da cama. Ele relata medo de desmaiar e explica que já evitou dirigir em alguns dias.
+
+Ao revisar o histórico, o farmacêutico percebe que o paciente iniciou o medicamento há menos de duas semanas e não recebeu orientações adequadas sobre efeitos adversos, horários adequados de administração ou medidas de prevenção, como levantar lentamente da posição deitada ou sentada.
+
+Diante desse cenário:`,
+  alts: [
+    'Aconselhar a interrupção imediata do medicamento.',
+    'Ignorar o relato por ser comum no início do tratamento.',
+    'Documentar o evento, orientar medidas de segurança, avaliar necessidade de intervenção e comunicar o médico para possível ajuste terapêutico.',
+    'Prescrever medicamento adicional para combater o sintoma.',
+    'Pedir ao paciente para esperar a próxima consulta médica.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Suspender o anti-hipertensivo sem avaliação pode causar descontrole pressórico.',
+    'Errada. Hipotensão postural com risco de queda precisa de intervenção.',
+    'Correta. Registrar o evento adverso, orientar (levantar devagar, hidratação), avaliar e comunicar o prescritor.',
+    'Errada. Tratar efeito adverso com outro medicamento (cascata de prescrição) não é a conduta.',
+    'Errada. Há risco de queda: a comunicação com o médico não deve esperar.'
+  ],
+  fonte: 'Material de Cuidado Farmacêutico (seguimento farmacoterapêutico; farmacovigilância).'
+},
+{
+  id: 'INT-28', origem: 'Prova Integradora (Q28)', assunto: 'Consultório farmacêutico (Res. CFF 720/2022)',
+  enun: `Um farmacêutico decide abrir um consultório particular para prestação de serviços clínicos como anamnese farmacêutica, revisão de farmacoterapia, acompanhamento farmacoterapêutico e prescrição de MIPs. Para isso, busca orientação sobre os requisitos legais necessários ao funcionamento do espaço.
+
+Ele verifica que será necessário seguir as normas sanitárias aplicáveis, garantir estrutura adequada, manter registros dos atendimentos, instituir fluxos de encaminhamento e assegurar conformidade com regulamentações do Conselho Federal de Farmácia.
+
+De acordo com a Resolução CFF nº 720/2022:`,
+  alts: [
+    'Apenas registro no CRF é necessário.',
+    'Alvará sanitário, inscrição no CRF e cumprimento das normas da Anvisa (RDC nº 44/2009).',
+    'Apenas autorização municipal basta.',
+    'Não é preciso autorização específica.',
+    'Apenas a formação acadêmica é exigida.'
+  ],
+  c: 'B',
+  e: [
+    'Errada. Também são exigidos licenciamento sanitário e cumprimento das normas sanitárias.',
+    'Correta. O consultório farmacêutico exige alvará/licença sanitária, inscrição no CRF e cumprimento das normas sanitárias (Anvisa).',
+    'Errada. É necessário também o registro no CRF.',
+    'Errada. Há requisitos legais específicos.',
+    'Errada. A formação sozinha não autoriza o funcionamento do estabelecimento.'
+  ],
+  fonte: 'Resolução CFF nº 720/2022 (consultório farmacêutico); RDC nº 44/2009.'
+},
+{
+  id: 'INT-29', origem: 'Prova Integradora (Q29)', assunto: 'Educação em saúde e prática baseada em evidências',
+  enun: `Durante uma consulta, uma paciente de 54 anos comenta que uma vizinha lhe recomendou um fitoterápico "muito bom para ansiedade". Ela está insegura, pois não sabe se funcionará, se pode interagir com o antidepressivo que já utiliza e se há riscos associados. Afirma que confiou na recomendação porque "é natural", mas queria a opinião do farmacêutico.
+
+Nesse cenário, considerando o papel clínico do farmacêutico e a necessidade de manejo baseado em evidências:`,
+  alts: [
+    'Aprovar o uso sem discussões para validar a experiência do paciente.',
+    'Desencorajar qualquer fitoterápico, independentemente das evidências.',
+    'Investigar composição, avaliar evidências científicas, analisar potenciais interações e orientar adequadamente.',
+    'Ignorar a dúvida e focar nos medicamentos prescritos.',
+    'Sugerir troca imediata por um sintético equivalente.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. "Natural" não significa seguro; há risco de interação com o antidepressivo.',
+    'Errada. A decisão deve se basear em evidências, não em proibição genérica.',
+    'Correta. Prática baseada em evidências: composição, eficácia, interações (ex.: erva-de-são-joão com antidepressivos) e orientação.',
+    'Errada. A dúvida da paciente é uma oportunidade de cuidado.',
+    'Errada. Não cabe trocar sem avaliação clínica e sem o prescritor.'
+  ],
+  fonte: 'Material de Cuidado Farmacêutico (prática baseada em evidências; fitoterapia).'
+},
+{
+  id: 'INT-30', origem: 'Prova Integradora (Q30)', assunto: 'Acompanhamento farmacoterapêutico', adaptada: true,
+  enun: `Durante o atendimento clínico em um consultório farmacêutico vinculado a uma Unidade de Saúde da Família, uma mulher de 62 anos, hipertensa e diabética, relata dificuldade em manter a adesão ao tratamento. Vive sozinha, possui baixa escolaridade e rotina desorganizada, frequentemente esquece os horários da medicação, confunde os comprimidos e demonstra baixa motivação, afirmando "não ver melhora", apesar dos parâmetros clínicos indicarem benefício do tratamento.
+
+Ela também relata sensação de impotência diante da quantidade de medicamentos, medo de efeitos adversos e dificuldade em compreender orientações médicas. Suas condições socioeconômicas limitam o acesso a alimentos adequados e atividades de lazer, e apresenta pouca rede de apoio familiar.
+
+Qual plano de cuidado farmacêutico é o mais completo e adequado?`,
+  alts: [
+    'Reforçar verbalmente a importância de tomar os medicamentos e agendar retorno apenas se houver piora.',
+    'Encaminhar ao médico para simplificar a prescrição, já que a falta de adesão é um problema exclusivamente médico.',
+    'Avaliar a farmacoterapia e identificar problemas relacionados a medicamentos; definir com ela objetivos realistas; usar estratégias de adesão (organizador de comprimidos, tabela com figuras, associação a rotinas); fazer educação centrada na pessoa; monitorar e marcar seguimento; tudo isso com escuta qualificada, vínculo e abordagem humanizada.',
+    'Entregar uma lista impressa com todos os horários e orientar que ela peça ajuda a vizinhos.',
+    'Sugerir a suspensão dos medicamentos que ela tem medo de usar até a próxima consulta médica.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Só reforçar verbalmente não enfrenta as causas da baixa adesão (esquecimento, confusão, medo, baixa compreensão).',
+    'Errada. Adesão é foco central do cuidado farmacêutico; o encaminhamento pode complementar, mas não substituir o plano.',
+    'Correta. Contempla todos os itens pedidos na prova: avaliação clínica e PRM, objetivos compartilhados, estratégias de adesão e segurança, educação centrada na pessoa, monitoramento e escuta qualificada/vínculo.',
+    'Errada. Material escrito sozinho não serve para quem tem baixa escolaridade e não substitui o acompanhamento.',
+    'Errada. Suspender medicamentos sem avaliação traz risco (descontrole pressórico e glicêmico).'
+  ],
+  obs: 'Na prova original esta questão era discursiva: pedia um plano de cuidado farmacêutico completo com avaliação clínica e PRM, objetivos terapêuticos, estratégias de adesão, intervenções educativas, monitoramento e justificativa da escuta qualificada e do vínculo.',
+  fonte: 'Material de Cuidado Farmacêutico (plano de cuidado; adesão; método clínico centrado na pessoa).'
+}
+]);
+
 </script>
 <script>
 /* Flashcards — conceitos que mais caem (baseados nos slides e capítulos conferidos) */
@@ -4431,6 +4895,7 @@ const SIMS = [
   { key: '2026', nome: 'Provas 2026' },
   { key: '2025', nome: 'Provas 2025' },
   { key: 'ineditas', nome: 'Questões inéditas' },
+  { key: 'integradora', nome: 'Prova Integradora' },
 ];
 const LETRAS = ['A', 'B', 'C', 'D', 'E', 'F'];
 const STORE = 'farmaquest:v1';
@@ -4818,6 +5283,7 @@ function viewHome() {
     h += `<div class="mcard"><div class="mcard-head"><h3>${info.nome}</h3><p>${info.prof}</p></div><div class="mcard-body">`;
     for (const s of SIMS) {
       const qs = baseQs(m, s.key); const ans = getAns(m, s.key);
+      if (!qs.length) continue;
       const feitos = qs.filter(q => ans[q.id] !== undefined).length;
       const label = !feitos ? 'Começar' : feitos === qs.length ? 'Ver resumo' : 'Continuar';
       h += `<div class="sim-row"><div class="info"><div class="t">${s.nome}</div><div class="d">${qs.length} questões</div>
