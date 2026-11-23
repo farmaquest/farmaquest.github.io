@@ -87,6 +87,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .login-links{display:flex;flex-direction:column;align-items:center;gap:8px}
 .nota-wv{background:var(--baby-2);border:1px solid var(--baby-3);border-radius:8px;padding:8px 12px}
 #lg-ok{width:100%;padding:11px 16px;font-size:15px}
+#lg-visitante{width:100%;padding:11px 16px;font-size:15px}
+.nota-visitante{margin:0;text-align:center;font-size:13px;color:var(--muted)}
+button.sync-pill.visitante{font-family:inherit;cursor:pointer}
+button.sync-pill.visitante:hover{border-color:var(--baby-3)}
 .perfil-card .acoes{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
 .install-banner{position:relative;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--baby-2);border:1px solid var(--baby-3);border-radius:var(--radius);padding:12px 40px 12px 14px;margin-bottom:16px;font-size:14.5px}
 .install-banner .txt{flex:1;min-width:150px}
@@ -4738,11 +4742,22 @@ window.FORMULAS = [
 (function () {
   let auth = null, fdb = null, unsub = null, uidAtual = null;
   const DONO_KEY = 'farmaquest:dono';
+  const VIS_KEY = 'farmaquest:visitante'; /* modo visitante: sem conta, progresso só neste aparelho */
   const naWebView = /\bwv\b|WhatsApp|FBAN|FBAV|Instagram/i.test(navigator.userAgent || '');
 
   function vazio() { return { answers: {}, attempts: [], custom: {}, orders: {}, settings: { shuffle: false }, fc: {}, updatedAt: 0, perfil: null }; }
   function lerDono() { try { return localStorage.getItem(DONO_KEY); } catch (e) { return null; } }
   function gravarDono(u) { try { if (u) localStorage.setItem(DONO_KEY, u); else localStorage.removeItem(DONO_KEY); } catch (e) {} }
+  function lerVisitante() { try { return localStorage.getItem(VIS_KEY) === '1'; } catch (e) { return false; } }
+  function gravarVisitante(v) { try { if (v) localStorage.setItem(VIS_KEY, '1'); else localStorage.removeItem(VIS_KEY); } catch (e) {} }
+  function entrarVisitante() {
+    const dono = lerDono();
+    if (dono && dono !== 'visitante') state = vazio(); /* não mostra o progresso de quem tem conta neste aparelho */
+    gravarDono('visitante'); gravarVisitante(true); saveLocal();
+    window.FQ_VISITANTE = true; window.FQ_LOGADO = true; uidAtual = null; sync.ref = null;
+    fecharLogin(); perfilAberto = false; setSync('visitante'); render();
+  }
+  window.fqVisitante = entrarVisitante;
 
   const ERROS = {
     'auth/invalid-credential': 'E-mail ou senha incorretos.',
@@ -4782,6 +4797,9 @@ window.FORMULAS = [
         ${criar ? '<button type="button" class="linkbtn" onclick="fqModo(\'entrar\')">Já tenho conta: entrar</button>'
           : '<button type="button" class="linkbtn" onclick="fqModo(\'criar\')">Não tenho conta: criar agora</button><button type="button" class="linkbtn" onclick="fqEsqueci()">Esqueci minha senha</button>'}
       </div>
+      <div class="ou"><span>ou</span></div>
+      <button type="button" class="btn ghost" id="lg-visitante" onclick="fqVisitante()">Entrar como visitante</button>
+      <p class="nota-visitante">Sem conta, o progresso fica salvo só neste aparelho. Se criar uma conta depois, ele vai junto.</p>
     </form>`;
     m.hidden = false;
   }
@@ -4823,6 +4841,10 @@ window.FORMULAS = [
     catch (e) { erro(msgErro(e)); }
   };
   window.sairConta = async function () {
+    if (window.FQ_VISITANTE) { /* visitante: volta para o login e mantém o progresso deste aparelho */
+      window.FQ_VISITANTE = false; window.FQ_LOGADO = false; gravarVisitante(false);
+      perfilAberto = false; modo = 'criar'; setSync('local'); renderPerfil(); telaLogin(); return;
+    }
     try { if (unsub) unsub(); } catch (e) {}
     unsub = null; sync.ref = null;
     state = vazio(); saveLocal(); gravarDono(null);
@@ -4834,6 +4856,7 @@ window.FORMULAS = [
   /* ---------- progresso na nuvem ---------- */
   function conectar(user) {
     uidAtual = user.uid;
+    window.FQ_VISITANTE = false; gravarVisitante(false);
     const ref = fdb.collection('usuarios').doc(user.uid);
     sync.ref = { set: dados => ref.set(dados) };
     setSync('conectando');
@@ -4846,7 +4869,7 @@ window.FORMULAS = [
         if (!confirmado) return;
         primeiro = false; clearTimeout(timer);
         const remoto = snap.exists ? unpack(JSON.parse(JSON.stringify(snap.data()))) : null;
-        const localDoUsuario = lerDono() === user.uid || !lerDono();
+        const localDoUsuario = lerDono() === user.uid || !lerDono() || lerDono() === 'visitante'; /* progresso de visitante vai para a conta */
         if (remoto) state = localDoUsuario ? mesclar(state, remoto) : remoto;
         else if (!localDoUsuario) state = vazio();
         if (!state.perfil || !state.perfil.nome) {
@@ -4876,10 +4899,12 @@ window.FORMULAS = [
     try { auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL); } catch (e) {}
     auth.getRedirectResult().catch(e => { if (e && e.code) telaLogin(msgErro(e)); });
     let resolvido = false;
-    setTimeout(() => { if (!resolvido) telaLogin(); }, 4000);
+    if (lerVisitante()) entrarVisitante(); /* visitante volta direto, sem passar pelo login */
+    setTimeout(() => { if (!resolvido && !window.FQ_VISITANTE) telaLogin(); }, 4000);
     auth.onAuthStateChanged(user => {
       resolvido = true;
       if (user) { if (user.uid !== uidAtual) conectar(user); }
+      else if (window.FQ_VISITANTE) return;
       else { window.FQ_LOGADO = false; uidAtual = null; sync.ref = null; telaLogin(); }
     });
   };
@@ -4930,6 +4955,7 @@ function save() { state.updatedAt = Date.now(); saveLocal(); agendarSync(); }
 /* ---------- sincronização com a conta do Claude (privada por pessoa) ---------- */
 const sync = { ref: null, status: 'local', timer: null, writing: false, again: false };
 const SYNC_TXT = {
+  visitante: '👤 Modo visitante: progresso salvo só neste aparelho · <u>Criar conta</u>',
   local: '💾 Progresso salvo neste aparelho',
   conectando: '⏳ Conectando à sua conta…',
   salvando: '☁️ Salvando na sua conta…',
@@ -4941,6 +4967,7 @@ const SYNC_TXT = {
 function syncEfetivo() { return sync.status; }
 function syncBadge() {
   const s = syncEfetivo();
+  if (s === 'visitante') return `<button type="button" class="sync-pill visitante" id="sync-status" onclick="sairConta()">${SYNC_TXT[s]}</button>`;
   return `<span class="sync-pill ${s === 'bloqueado' ? 'alerta' : ''}" id="sync-status" role="status" ${s === 'bloqueado' ? 'onclick="abrirBackup(\'export\')" style="cursor:pointer"' : ''}>${SYNC_TXT[s]}</span>`;
 }
 function setSync(s) { sync.status = s; const el = document.getElementById('sync-status'); if (el) el.outerHTML = syncBadge(); }
@@ -5192,7 +5219,7 @@ function mostrarPerfil(primeira) {
     <label for="perfil-nome">Como você quer ser chamado?</label>
     <input id="perfil-nome" name="nome" maxlength="30" autocomplete="given-name" placeholder="Ex.: Luiz">
     <div class="erro" id="perfil-erro"></div>
-    <div class="acoes">${!primeira && window.FQ_NUVEM_ATIVA ? '<button type="button" class="btn danger" style="margin-right:auto" onclick="sairConta()">Sair da conta</button>' : ''}${primeira ? '' : '<button type="button" class="btn ghost" onclick="fecharPerfil()">Cancelar</button>'}<button type="submit" class="btn">${primeira ? 'Criar perfil' : 'Salvar'}</button></div>  </form>`;
+    <div class="acoes">${!primeira && window.FQ_NUVEM_ATIVA ? (window.FQ_VISITANTE ? '<button type="button" class="btn ghost" style="margin-right:auto" onclick="sairConta()">Entrar com uma conta</button>' : '<button type="button" class="btn danger" style="margin-right:auto" onclick="sairConta()">Sair da conta</button>') : ''}${primeira ? '' : '<button type="button" class="btn ghost" onclick="fecharPerfil()">Cancelar</button>'}<button type="submit" class="btn">${primeira ? 'Criar perfil' : 'Salvar'}</button></div>  </form>`;
   m.hidden = false;
   const inp = document.getElementById('perfil-nome'); inp.value = nomePerfil(); setTimeout(() => inp.focus(), 30);
 }
