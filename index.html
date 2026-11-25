@@ -1907,9 +1907,11 @@ Assinale a associação correta entre o método e seu fundamento.`,
     'Errada. Só a CLAE separa; o UV mede a mistura toda, por isso é menos seletivo.'
   ],
   fonte: 'Material "Espectroscopia" e cromatografia.'
-},
+}
+]);
 
-/* ---------- 2026 – Prova de Segunda Chamada ---------- */
+/* ================= PROVA SEGUNDA CHAMADA 2026 (simulado próprio) ================= */
+addQ('cq', 'segunda', 2026, [
 {
   id: 'CQ26-SC-01', origem: '2026 – 2ª Chamada (Q1)', assunto: 'CQ de matérias-primas: identificação e pureza',
   enun: `Uma empresa acabou de receber um lote de matéria-prima e deseja detectar a presença de impurezas antes de liberar seu uso. Sobre o assunto, é correto o que se afirma em:
@@ -5140,6 +5142,7 @@ const MATERIAS = {
 const SIMS = [
   { key: '2026', nome: 'Provas 2026' },
   { key: '2025', nome: 'Provas 2025' },
+  { key: 'segunda', nome: 'Prova Segunda Chamada' },
   { key: 'ineditas', nome: 'Questões inéditas' },
   { key: 'integradora', nome: 'Prova Integradora', separada: true },
 ];
@@ -5534,7 +5537,8 @@ function viewHome() {
   for (const [m, info] of Object.entries(MATERIAS)) {
     h += `<div class="mcard"><div class="mcard-head"><h3>${info.nome}</h3><p>${info.prof}</p></div><div class="mcard-body">`;
     for (const s of SIMS.filter(x => !x.separada)) {
-      const qs = baseQs(m, s.key); const ans = getAns(m, s.key);
+      const qs = baseQs(m, s.key); if (!qs.length) continue; /* matéria sem esse simulado (ex.: Segunda Chamada só em CQ) */
+      const ans = getAns(m, s.key);
       const feitos = qs.filter(q => ans[q.id] !== undefined).length;
       const label = !feitos ? 'Começar' : feitos === qs.length ? 'Ver resumo' : 'Continuar';
       h += `<div class="sim-row"><div class="info"><div class="t">${s.nome}</div><div class="d">${qs.length} questões</div>
