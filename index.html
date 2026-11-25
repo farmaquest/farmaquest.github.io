@@ -1907,6 +1907,225 @@ Assinale a associação correta entre o método e seu fundamento.`,
     'Errada. Só a CLAE separa; o UV mede a mistura toda, por isso é menos seletivo.'
   ],
   fonte: 'Material "Espectroscopia" e cromatografia.'
+},
+
+/* ---------- 2026 – Prova de Segunda Chamada ---------- */
+{
+  id: 'CQ26-SC-01', origem: '2026 – 2ª Chamada (Q1)', assunto: 'CQ de matérias-primas: identificação e pureza',
+  enun: `Uma empresa acabou de receber um lote de matéria-prima e deseja detectar a presença de impurezas antes de liberar seu uso. Sobre o assunto, é correto o que se afirma em:
+
+I. Contaminantes inorgânicos geralmente são determinados por técnicas clássicas, como os ensaios-limite, em que a presença de um analito resulta em alterações visuais ao reagir com um composto.
+
+II. A determinação de água não é considerada uma análise de pureza, afinal de contas a água não é considerada contaminante e nem impacta na qualidade de fármacos e excipientes.
+
+III. Uma forma de verificar a presença de contaminantes orgânicos se dá por meio da incineração de uma amostra sob altas temperaturas. Assim é possível identificar e quantificar, a partir da massa dos resíduos, os produtos de degradação presentes na amostra.`,
+  alts: ['Apenas I.', 'Apenas II.', 'Apenas III.', 'Apenas II e III.', 'Apenas I e III.'],
+  c: 'A',
+  e: [
+    'Correta. Só a I é verdadeira: ensaios-limite (cloretos, sulfatos, ferro, metais pesados) comparam visualmente a turbidez ou a cor da amostra com a de um padrão.',
+    'Errada. A II é falsa: a água é impureza. Favorece hidrólise e crescimento microbiano e altera o cálculo do teor; por isso Karl Fischer e perda por dessecação são ensaios de pureza.',
+    'Errada. A III é falsa: a incineração destrói a matéria orgânica. O resíduo (cinzas / resíduo por incineração) indica impurezas INORGÂNICAS, e não identifica produtos de degradação.',
+    'Errada. II e III são falsas.',
+    'Errada. A III é falsa (incineração avalia resíduo inorgânico).'
+  ],
+  fonte: 'Material "CQ MPs" — ensaios de pureza (ensaios-limite, determinação de água, resíduo por incineração).'
+},
+{
+  id: 'CQ26-SC-02', origem: '2026 – 2ª Chamada (Q2)', assunto: 'Espectrofotometria UV-Vis',
+  enun: `A espectrofotometria é uma técnica eficiente para analisar fármacos. Sobre este ensaio aplicado à matéria-prima atenolol, assinale a alternativa correta.`,
+  alts: [
+    'O doseamento da matéria-prima baseia-se no fato de que ela apresenta grupos cromóforos capazes de absorver toda a luz incidente em qualquer comprimento de onda.',
+    'Caso as amostras de atenolol devam ser analisadas na concentração de 0,01 mg/mL, é preciso antes de tudo diluir, uma vez que o fármaco se encontra na forma de pó.',
+    'O teor da amostra será 99,3%, caso a absorbância do padrão seja 0,710 e a da amostra seja 0,705.',
+    'Se a monografia deste fármaco indica que a análise deve ser feita em 275 nm, a cubeta a ser empregada será de vidro, pois a amostra absorve a luz na região do visível.',
+    'Sob nenhuma hipótese admite-se que substâncias originalmente sólidas sejam analisadas por esta técnica, uma vez que qualquer solvente afetará o resultado obtido; logo, a espectrofotometria não se aplicaria nesse caso.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Os cromóforos absorvem em comprimentos de onda ESPECÍFICOS (por isso se escolhe o λ máximo), não toda a luz em qualquer λ.',
+    'Errada. Um pó não se "dilui": primeiro é pesado e DISSOLVIDO em solvente adequado; só depois a solução é diluída até a concentração de trabalho.',
+    'Correta. Com padrão e amostra na mesma concentração teórica: teor = A(amostra) ÷ A(padrão) × 100 = 0,705 ÷ 0,710 × 100 = 99,3%.',
+    'Errada. 275 nm é região do ULTRAVIOLETA. O vidro absorve no UV; usa-se cubeta de quartzo.',
+    'Errada. Sólidos são dissolvidos em solvente apropriado, e a interferência do solvente é descontada com o branco.'
+  ],
+  obs: 'Fórmula rápida (padrão e amostra na mesma concentração): teor (%) = A amostra ÷ A padrão × 100.',
+  fonte: 'Material "Espectroscopia" (Lambert-Beer, cubetas de quartzo no UV, comparação com padrão).'
+},
+{
+  id: 'CQ26-SC-03', origem: '2026 – 2ª Chamada (Q3)', assunto: 'Cromatografia (CCD, CLAE e CG)', adaptada: true,
+  enun: `Um analista desenvolveu um método por CLAE (HPLC) para a análise simultânea de ácido acetilsalicílico (AAS), paracetamol e cafeína em comprimidos.
+
+<table><tr><th>Analito</th><th>logP</th><th>Concentração injetada</th></tr><tr><td>Cafeína</td><td>−0,24</td><td>0,3 mg/mL</td></tr><tr><td>Paracetamol</td><td>0,46</td><td>0,5 mg/mL</td></tr><tr><td>Ácido acetilsalicílico</td><td>1,2</td><td>1,5 mg/mL</td></tr></table>
+Condições: coluna C18, 10 µm, 250 × 4,6 mm; fase móvel água:acetonitrila (50:50, v/v); vazão 1 mL/min; detecção em 275 nm; injeção de 25 µL. O cromatograma mostrou três picos (1, 2 e 3) entre 2 e 6 min.
+
+Qual foi o modo de eluição e a provável ordem de eluição dos picos 1, 2 e 3?`,
+  alts: [
+    'Fase normal, pois a coluna C18 é polar; ordem: AAS → paracetamol → cafeína.',
+    'Fase reversa, pois a coluna C18 é apolar e a fase móvel (água:acetonitrila) é polar; ordem: cafeína → paracetamol → AAS, já que o composto mais polar (menor logP) interage menos com a fase estacionária e sai primeiro.',
+    'Fase reversa; ordem: AAS → paracetamol → cafeína, pois o composto de maior logP tem mais afinidade pela fase móvel.',
+    'Fase normal, pois a fase móvel é apolar; ordem: cafeína → paracetamol → AAS.',
+    'Fase reversa; a ordem segue a massa molar (menor primeiro): paracetamol → AAS → cafeína.'
+  ],
+  c: 'B',
+  e: [
+    'Errada. A C18 (octadecilsilano) é APOLAR; isso caracteriza fase reversa.',
+    'Correta. Fase reversa: estacionária apolar (C18) e móvel polar. Quanto menor o logP (mais polar), menor a retenção: cafeína (−0,24) = pico 1, paracetamol (0,46) = pico 2, AAS (1,2) = pico 3.',
+    'Errada. Maior logP significa mais lipofílico, com MAIS afinidade pela C18 apolar, então elui por último.',
+    'Errada. Água:acetonitrila é uma fase móvel polar, e a C18 é apolar.',
+    'Errada. Na fase reversa, o que manda é a polaridade (logP), não a massa molar.'
+  ],
+  obs: 'Na prova original esta questão era discursiva: a) modo de eluição, explicado (0,5 pt); b) ordem de eluição, justificada (1,0 pt). Dica: em fase reversa, "mais polar sai primeiro"; compare os logP.',
+  fonte: 'Material de cromatografia (CLAE em fase reversa; logP e retenção).'
+},
+{
+  id: 'CQ26-SC-04', origem: '2026 – 2ª Chamada (Q4)', assunto: 'Cálculos de controle de qualidade', adaptada: true,
+  enun: `Ao dosear o teor de propranolol na amostra por titulação, obteve-se um volume consumido de 17 mL do titulante, cujo fator de correção era 1,0, empregando-se 0,55 g de amostra. Sabendo que cada mL do ácido perclórico 0,1 M SV equivale a 29,580 mg de cloridrato de propranolol, qual o teor do fármaco na amostra? A amostra está apta quanto a este parâmetro, considerando que deve conter no mínimo 98,0% e no máximo 101,5% da substância ativa?`,
+  alts: [
+    '29,58 mg; 5,4%; reprovada.',
+    '50,29 mg; 9,1%; reprovada.',
+    '502,86 mg; 91,4%; reprovada, pois está abaixo de 98,0%.',
+    '502,86 mg; 91,4%; aprovada, pois está abaixo do limite máximo de 101,5%.',
+    '502,86 mg; 109,4%; reprovada, pois está acima de 101,5%.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Usou só a equivalência de 1 mL; faltou multiplicar pelo volume gasto (17 mL).',
+    'Errada. Multiplicou de novo pela molaridade (0,1). A equivalência (29,580 mg/mL) já considera o titulante 0,1 M.',
+    'Correta. Massa = V × f × equivalente = 17 × 1,0 × 29,580 = 502,86 mg. Teor = 502,86 ÷ 550 × 100 = 91,4%, abaixo do mínimo de 98,0%: amostra reprovada.',
+    'Errada. A faixa tem mínimo E máximo; 91,4% está abaixo de 98,0%.',
+    'Errada. Dividiu ao contrário (550 ÷ 502,86). O teor é a massa encontrada dividida pela massa de amostra.'
+  ],
+  obs: 'Na prova original esta questão era discursiva (1,0 pt). Fórmula: teor (%) = (V × f × equivalente) ÷ massa da amostra × 100. Não esqueça de converter 0,55 g = 550 mg.',
+  fonte: 'Cap. 3 – Técnicas clássicas (volumetria em meio não aquoso com ácido perclórico; equivalente-grama).'
+},
+{
+  id: 'CQ26-SC-05', origem: '2026 – 2ª Chamada (Q5)', assunto: 'Gestão da qualidade e ferramentas', adaptada: true,
+  enun: `Uma indústria farmacêutica está se preparando para receber a visita dos auditores da ANVISA para renovação de seu certificado de Boas Práticas de Fabricação. Um consultor passou uma semana observando os processos, pois muitos clientes têm reclamado via SAC que os produtos líquidos vêm com volume abaixo do valor rotulado.
+
+Assinale a alternativa que aponta corretamente duas possíveis falhas no processo e uma ferramenta da qualidade adequada para minimizar o desvio.`,
+  alts: [
+    'Falhas: excesso de inspeção do produto acabado e número elevado de análises; ferramenta: histograma das reclamações do SAC, que identifica sozinho a causa raiz.',
+    'Falhas: dosador da envasadora descalibrado ou sem manutenção, e ausência de controle em processo do volume envasado; ferramenta: gráfico (carta) de controle, com amostras de volume coletadas periodicamente e plotadas no tempo entre limites de controle, revelando tendências antes de o produto sair da especificação.',
+    'O desvio é apenas de rotulagem: basta reimprimir os rótulos com o volume menor, sem necessidade de ferramenta da qualidade.',
+    'Falhas: baixa friabilidade e dissolução lenta; ferramenta: gráfico de Pareto, usado para acompanhar o volume ao longo do tempo.',
+    'Falhas: atendimento lento do SAC e falta de propaganda; ferramenta: fluxograma, que mede diretamente o volume de cada frasco.'
+  ],
+  c: 'B',
+  e: [
+    'Errada. Inspecionar mais não causa volume baixo, e o histograma não identifica causa raiz sozinho.',
+    'Correta. São falhas plausíveis do envase (calibração e manutenção do equipamento, falta de verificação de volume durante o processo), e a carta de controle é a ferramenta que monitora a variável no tempo e sinaliza a perda de controle. Ishikawa (6M) pode complementar na busca das causas.',
+    'Errada. Mudar o rótulo esconde o problema; o desvio de processo precisa ser investigado (BPF).',
+    'Errada. Friabilidade e dissolução são ensaios de sólidos; o Pareto prioriza causas e não acompanha o processo no tempo.',
+    'Errada. O SAC só recebe o problema, e o fluxograma mapeia etapas, não mede volume.'
+  ],
+  obs: 'Na prova original esta questão era discursiva: a) duas falhas (0,5 pt); b) uma ferramenta e como funcionaria (0,5 pt). Outras falhas aceitáveis: operador sem treinamento, ausência de POP de envase, vazamento na tampa ou embalagem, variação de viscosidade/temperatura. Outras ferramentas: Ishikawa, Pareto, PDCA.',
+  fonte: 'Artigo "Ferramentas da qualidade" (carta de controle, Ishikawa, Pareto); RDC 658/2022 (controle em processo).'
+},
+{
+  id: 'CQ26-SC-06', origem: '2026 – 2ª Chamada (Q6)', assunto: 'CQ de matérias-primas: identificação e pureza',
+  enun: `Sobre os métodos aplicados ao controle de qualidade de fármacos e medicamentos, julgue as afirmativas:
+
+( ) No método de determinação de água por método volumétrico (Karl Fischer), a amostra é dessecada a 100–105 °C até peso constante.
+( ) O método de determinação de cinzas insolúveis em ácido destina-se à determinação de sílica e constituintes silícicos da droga.
+( ) O ensaio-limite para cloretos se baseia na reação de precipitação do íon cloreto por nitrato de prata, em meio ácido.
+( ) A identificação do princípio ativo não é um quesito necessário para garantir a eficácia de um produto.
+( ) A cromatografia é uma técnica que possibilita a identificação de fármacos, mas não é possível verificar sua pureza.
+
+Assinale a sequência correta.`,
+  alts: ['F – V – V – F – F', 'V – V – V – F – F', 'V – V – F – F – F', 'F – V – V – V – V', 'V – V – V – F – V'],
+  c: 'A',
+  e: [
+    'Correta. (F) Karl Fischer é titulação com reagente iodo/SO₂; secar a 100–105 °C é a perda por dessecação. (V) Cinzas insolúveis em ácido = sílica e terra. (V) Cloreto + AgNO₃ em meio de HNO₃ forma AgCl (turbidez). (F) Sem identificar o ativo não há garantia de eficácia. (F) A cromatografia também avalia pureza (impurezas e degradação).',
+    'Errada. A 1ª é falsa: dessecação em estufa é a perda por dessecação, não Karl Fischer.',
+    'Errada. A 1ª é falsa e a 3ª é verdadeira.',
+    'Errada. A 4ª e a 5ª são falsas.',
+    'Errada. A 1ª e a 5ª são falsas.'
+  ],
+  obs: 'Não confunda: Karl Fischer = reação química específica para água; perda por dessecação = estufa até peso constante (água + voláteis).',
+  fonte: 'Material "CQ MPs" — determinação de água, cinzas e ensaios-limite; Cap. 3 – Técnicas clássicas.'
+},
+{
+  id: 'CQ26-SC-07', origem: '2026 – 2ª Chamada (Q7)', assunto: 'Validação de métodos analíticos',
+  enun: `Ao se deparar com a necessidade de realizar uma análise de doseamento de um medicamento, o estagiário faz as seguintes afirmativas:
+
+I. Será uma análise qualitativa, pois o objetivo é somente identificar os excipientes presentes no medicamento.
+II. Ao aplicar um método titulométrico, é preciso garantir que apenas o ativo contido no produto será capaz de reagir com o titulante, evitando resultados inconsistentes.
+III. A análise cromatográfica é uma boa opção quando se deseja analisar um medicamento, pois essa técnica permite a separação dos componentes da formulação.
+IV. A determinação espectroscópica de uma amostra requer que o analito esteja completamente solúvel no solvente e que qualquer material particulado seja removido antes da leitura.
+V. A medida da absorbância é diretamente proporcional ao comprimento de onda usado na análise e ao volume consumido no preparo da solução.
+
+São corretas as afirmativas:`,
+  alts: ['Apenas I.', 'Apenas II e III.', 'Apenas II, IV e V.', 'Apenas II, III e IV.', 'Apenas I, III e V.'],
+  c: 'D',
+  e: [
+    'Errada. A I é falsa: doseamento é QUANTITATIVO (teor do ativo), não identificação de excipientes.',
+    'Errada. A IV também é verdadeira.',
+    'Errada. A V é falsa.',
+    'Correta. II: a titulação exige seletividade (excipientes não podem consumir titulante). III: a cromatografia separa os componentes. IV: partículas espalham a luz e falseiam a absorbância.',
+    'Errada. I e V são falsas.'
+  ],
+  obs: 'Lambert-Beer: A = ε·b·c. A absorbância é proporcional à CONCENTRAÇÃO e ao CAMINHO ÓPTICO (b), não ao comprimento de onda nem ao volume.',
+  fonte: 'Material "Espectroscopia"; Cap. 3 – Técnicas clássicas; cromatografia (seletividade).'
+},
+{
+  id: 'CQ26-SC-08', origem: '2026 – 2ª Chamada (Q8)', assunto: 'Ensaios físicos de formas farmacêuticas', adaptada: true,
+  enun: `Em uma indústria, foi preparado um xarope de guaco (Mikania glomerata): extrato hidroalcoólico de guaco 20% (v/v) e xarope simples qsp 1.000 L. O técnico do CQ determinou a densidade do xarope, a partir da qual autorizaria o envase em frascos de 100 mL. Dados:
+
+<table><tr><th>Medida</th><th>Valor</th></tr><tr><td>Massa do instrumento vazio</td><td>50 g</td></tr><tr><td>Massa do instrumento cheio de xarope</td><td>100 g</td></tr><tr><td>Volume do instrumento</td><td>25 mL</td></tr></table>
+Assinale a alternativa que traz, respectivamente, o instrumento utilizado, a densidade obtida e a massa de xarope em cada frasco de 100 mL.`,
+  alts: [
+    'Picnômetro; 2 g/mL; 50 g.',
+    'Refratômetro; 4 g/mL; 50 g.',
+    'Durômetro; 1 g/mL; 250 g.',
+    'Picnômetro; 2 g/mL; 200 g.',
+    'Refratômetro; 0,5 g/mL; 200 g.'
+  ],
+  c: 'D',
+  e: [
+    'Errada. 50 g é a massa de xarope dentro do picnômetro (25 mL), não a de um frasco de 100 mL.',
+    'Errada. O refratômetro mede índice de refração; e 100 ÷ 25 = 4 usa a massa total sem descontar o instrumento vazio.',
+    'Errada. O durômetro mede dureza de comprimidos.',
+    'Correta. Picnômetro. Massa de xarope = 100 − 50 = 50 g; d = 50 g ÷ 25 mL = 2 g/mL; frasco: 100 mL × 2 g/mL = 200 g.',
+    'Errada. Refratômetro é o instrumento errado, e 25 ÷ 50 = 0,5 inverte a fórmula (d = m ÷ V).'
+  ],
+  obs: 'Na prova original esta questão foi ANULADA (todos ganharam o ponto): o enunciado pedia a massa do "volume final da preparação envasada" sem deixar claro se era o frasco de 100 mL ou o lote de 1.000 L. Aqui foi reescrita pedindo a massa por frasco. Os números são didáticos: um xarope simples real tem densidade de aproximadamente 1,31 g/mL.',
+  fonte: 'Cap. Ensaios Físicos Líquidos e Semissólidos (densidade por picnômetro: d = (m cheio − m vazio) ÷ V).'
+},
+{
+  id: 'CQ26-SC-09', origem: '2026 – 2ª Chamada (Q9)', assunto: 'CQ de matérias-primas: identificação e pureza',
+  enun: `Durante o controle de qualidade de uma matéria-prima farmacêutica, o analista precisa determinar quantitativamente o teor do princípio ativo. Qual dos ensaios abaixo é mais diretamente destinado a essa finalidade, em vez de ser utilizado como ensaio de caracterização físico-química?`,
+  alts: ['Titulometria.', 'Cromatografia em camada delgada.', 'Densidade.', 'pH.', 'Solubilidade.'],
+  c: 'A',
+  e: [
+    'Correta. A titulometria (volumetria) é um método de DOSEAMENTO: quantifica o teor do ativo por estequiometria.',
+    'Errada. A CCD comum é usada para identificação e pureza (qualitativa ou semiquantitativa), não para doseamento.',
+    'Errada. A densidade é uma característica físico-química.',
+    'Errada. O pH é uma característica físico-química.',
+    'Errada. A solubilidade é uma característica físico-química (descrição da monografia).'
+  ],
+  fonte: 'Material "CQ MPs" (caracterização × identificação × pureza × doseamento); Cap. 3 – Técnicas clássicas.'
+},
+{
+  id: 'CQ26-SC-10', origem: '2026 – 2ª Chamada (Q10)', assunto: 'CQ de matérias-primas: identificação e pureza',
+  enun: `Ao receber um lote de extrato seco de Curcuma longa (açafrão) em sua farmácia magistral, você observou que o laudo do fornecedor continha os ensaios: aspecto; análise granulométrica; análise microscópica; perda por secagem; metais pesados; teor de curcuminoides (marcador fitoquímico); cinzas insolúveis em ácido; contagem de bactérias e fungos; pesquisa de patógenos.
+
+Sobre a situação, assinale a alternativa correta.`,
+  alts: [
+    'A determinação do teor de curcuminoides é um ensaio quantitativo de doseamento que permite determinar os níveis de marcadores fitoquímicos característicos do extrato.',
+    'Dentre os ensaios listados, são considerados testes microbiológicos: análise granulométrica; análise microscópica; contagem de bactérias e fungos; e pesquisa de patógenos.',
+    'As análises perda por secagem, metais pesados e teor de curcuminoides são consideradas ensaios de pureza, pois visam a identificação de contaminantes químicos na amostra.',
+    'A fim de determinar o conteúdo de matéria orgânica volátil, aplica-se o ensaio de cinzas insolúveis em ácido.',
+    'A perda por secagem corresponde a um ensaio-limite que visa a determinação semiquantitativa de água na matéria-prima mediante uma reação química.'
+  ],
+  c: 'A',
+  e: [
+    'Correta. O teor de marcador (curcuminoides) é o doseamento do extrato padronizado.',
+    'Errada. Granulometria é ensaio físico, e a análise microscópica é identificação botânica (elementos histológicos); só contagem e patógenos são microbiológicos.',
+    'Errada. Perda por secagem e metais pesados são de pureza, mas o teor de curcuminoides é doseamento.',
+    'Errada. Cinzas insolúveis em ácido avaliam resíduo INORGÂNICO (sílica, terra). A matéria orgânica é destruída na incineração.',
+    'Errada. A perda por secagem é gravimétrica (estufa até peso constante), sem reação química; quem usa reação é o Karl Fischer.'
+  ],
+  fonte: 'Controle de qualidade de fitoterápicos e extratos (marcadores, cinzas, perda por secagem, ensaios microbiológicos).'
 }
 ]);
 
