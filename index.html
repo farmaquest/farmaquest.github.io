@@ -4817,6 +4817,208 @@ Qual plano de cuidado farmacêutico é o mais completo e adequado?`,
 }
 ]);
 
+/* ================= PROVA INTEGRADORA (UNIFSA) — Q23 a Q30: Desenvolvimento de Produtos Farmacêuticos II ================= */
+addQ('dpf', 'integradora', 'Integradora', [
+{
+  id: 'INT-DPF-23', origem: 'Prova Integradora – DPF II (Q23)', assunto: 'Transposição de escala (scale-up)',
+  enun: `A produção de formas farmacêuticas líquidas, como soluções, suspensões e xaropes, envolve etapas como dissolução, dispersão, homogeneização e, frequentemente, aquecimento ou resfriamento controlado. Durante a transposição de escala, é fundamental garantir ajustes para preservar as características do produto final. A transposição de escala no desenvolvimento farmacêutico envolve:
+
+I. Ajuste da fórmula para melhorar a biodisponibilidade de um fármaco.
+II. Transferência do processo produtivo de uma escala laboratorial para uma escala piloto ou industrial, mantendo a qualidade e eficácia do produto.
+III. Modificação da forma farmacêutica de um medicamento já comercializado.
+IV. Redução do tempo de produção para atender à demanda do mercado.
+V. Verificar parâmetros críticos de processo, como tempo de mistura e velocidade de agitação.
+
+Está(ão) correta(s) apenas a(s) assertiva(s):`,
+  alts: ['I, II e IV.', 'II, IV e V.', 'III, IV e V.', 'II e IV.', 'II e V.'],
+  c: 'E',
+  e: [
+    'Errada. I é falsa: melhorar a biodisponibilidade é trabalho de pré-formulação e formulação, não de escalonamento. IV também é falsa.',
+    'Errada. IV é falsa: o scale-up aumenta o TAMANHO do lote mantendo a qualidade; reduzir o tempo de produção não é sua definição.',
+    'Errada. III é falsa: mudar a forma farmacêutica é desenvolver um produto novo, não transpor escala.',
+    'Errada. Falta a V (parâmetros críticos), e a IV é falsa. Na prova, quem marcou esta alternativa errou.',
+    'Correta. II é a própria definição (laboratório → piloto → industrial, mantendo qualidade e eficácia), e V é o que se faz nela: reavaliar parâmetros críticos de processo (tempo de mistura, velocidade de agitação, temperatura), que mudam com o tamanho do equipamento.'
+  ],
+  obs: 'A folha não trazia o gabarito oficial; na correção, a alternativa D (II e IV) foi marcada como errada. O gabarito aqui foi montado pelo conteúdo.',
+  fonte: 'Material de Desenvolvimento de Produtos Farmacêuticos II (transposição de escala de formas líquidas).'
+},
+{
+  id: 'INT-DPF-24', origem: 'Prova Integradora – DPF II (Q24)', assunto: 'Formas farmacêuticas líquidas (suspensões e xaropes)',
+  enun: `Uma indústria solicitou ao seu setor de desenvolvimento farmacotécnico estudos para a formulação de uma suspensão. O farmacêutico selecionou alguns excipientes e verificou em que categoria cada um se encaixava. Correlacione as colunas:
+
+(1) Agente suspensor
+(2) Agente floculante
+(3) Agente umectante
+(4) Veículo
+(5) Conservante
+
+( ) Reduzem o ressecamento da suspensão.
+( ) Aumenta a viscosidade do produto.
+( ) Favorecem a formação de agregados frouxos e reduzem o caking.
+( ) Favorecem a estabilidade microbiológica da suspensão.
+( ) Completam o volume da suspensão.
+
+A sequência correta é:`,
+  alts: ['1, 2, 3, 4, 5.', '3, 1, 2, 4, 5.', '2, 1, 3, 5, 4.', '3, 1, 2, 5, 4.', '1, 2, 3, 5, 4.'],
+  c: 'D',
+  e: [
+    'Errada. O suspensor aumenta a viscosidade (2º item), não reduz o ressecamento.',
+    'Errada. Inverte os dois últimos: o conservante dá a estabilidade microbiológica (5) e o veículo completa o volume (4).',
+    'Errada. O floculante forma agregados frouxos (3º item), não reduz o ressecamento.',
+    'Correta. Umectante (3) evita o ressecamento; suspensor (1) aumenta a viscosidade; floculante (2) forma flocos frouxos e evita o caking; conservante (5) protege contra micro-organismos; veículo (4) completa o volume.',
+    'Errada. Quem reduz o ressecamento é o umectante (3), não o suspensor.'
+  ],
+  fonte: 'Material de suspensões (funções dos adjuvantes).'
+},
+{
+  id: 'INT-DPF-25', origem: 'Prova Integradora – DPF II (Q25)', assunto: 'Formas farmacêuticas líquidas (suspensões e xaropes)',
+  enun: `As suspensões farmacêuticas são sistemas heterogêneos nos quais partículas sólidas insolúveis estão dispersas em um veículo líquido. Sobre as características e o desenvolvimento de suspensões, analise as afirmativas:
+
+I. A viscosidade do veículo dispersante influencia diretamente na estabilidade física da suspensão.
+II. Agentes suspensores são usados para retardar a sedimentação das partículas.
+III. Suspensões farmacêuticas ideais devem apresentar redispersibilidade lenta após o repouso.
+IV. Floculação controlada pode ser desejável para facilitar a redispersão das partículas sedimentadas.
+
+É correto apenas o que se afirma em:`,
+  alts: ['I e II.', 'II e IV.', 'I, III e IV.', 'I, II e IV.', 'I, II, III e IV.'],
+  c: 'D',
+  e: [
+    'Errada. A IV também é verdadeira.',
+    'Errada. A I também é verdadeira (pela Lei de Stokes, mais viscosidade = sedimentação mais lenta).',
+    'Errada. A III é falsa e faltou a II.',
+    'Correta. I, II e IV são verdadeiras. A III é falsa: a suspensão ideal se redispersa FÁCIL e RAPIDAMENTE com agitação suave, garantindo dose uniforme.',
+    'Errada. A III é falsa. Na prova, quem marcou esta alternativa errou.'
+  ],
+  obs: 'Pegadinha clássica: "redispersibilidade lenta" é defeito. A suspensão ideal sedimenta devagar e se redispersa rápido.',
+  fonte: 'Material de suspensões (Lei de Stokes; floculação controlada).'
+},
+{
+  id: 'INT-DPF-26', origem: 'Prova Integradora – DPF II (Q26)', assunto: 'Formas farmacêuticas líquidas (suspensões e xaropes)',
+  enun: `A realização do pré-natal adequado é primordial para a redução da morbimortalidade materno-infantil. A anemia por deficiência de ferro resulta de um longo período de defasagem entre a quantidade disponível de ferro biologicamente e a necessidade orgânica. Suponha que uma gestante tenha recebido a seguinte prescrição de xarope de sulfato ferroso:
+
+<table><tr><th>Componentes</th><th>Quantidade</th></tr><tr><td>Sulfato ferroso heptaidratado</td><td>4,00 g</td></tr><tr><td>Ácido cítrico</td><td>0,21 g</td></tr><tr><td>Aromatizante</td><td>qs</td></tr><tr><td>Água purificada</td><td>qs</td></tr><tr><td>Xarope simples qsp</td><td>100 mL</td></tr></table>
+Avalie as afirmações:
+
+I. O farmacêutico, em caso de diabetes gestacional, poderá substituir o xarope simples por xarope de carboximetilcelulose (CMC), como agente de viscosidade.
+II. O ácido cítrico pode ser solubilizado em quantidade suficiente de água antes de ser incorporado ao xarope.
+III. A formulação acima está incompleta, pois não apresenta um adjuvante com função conservante.
+
+É correto apenas o que se afirma em:`,
+  alts: ['I e III.', 'I e II.', 'II e III.', 'I, II e III.', 'Apenas em I.'],
+  c: 'B',
+  e: [
+    'Errada. A II é verdadeira e a III é falsa.',
+    'Correta. I: para gestante diabética troca-se a sacarose por um veículo viscoso sem açúcar, como o xarope de CMC. II: o ácido cítrico (acidulante/antioxidante que protege o Fe²⁺ da oxidação) é dissolvido em um pouco de água e depois incorporado.',
+    'Errada. A I é verdadeira e a III é falsa.',
+    'Errada. A III é falsa: o xarope simples, com alta concentração de sacarose (baixa atividade de água), já é autoconservante. Na prova, quem marcou esta alternativa errou.',
+    'Errada. A II também é verdadeira.'
+  ],
+  obs: 'A folha não trazia o gabarito oficial; na correção, a alternativa D (I, II e III) foi marcada como errada. Atenção: se o xarope simples for trocado pelo de CMC (sem açúcar), aí sim é preciso acrescentar conservante.',
+  fonte: 'Material de xaropes (xarope simples autoconservante; veículos sem açúcar; ácido cítrico no xarope de sulfato ferroso).'
+},
+{
+  id: 'INT-DPF-27', origem: 'Prova Integradora – DPF II (Q27)', assunto: 'Comprimidos',
+  enun: `A partição de comprimidos ou abertura de cápsulas é frequentemente realizada para ajustar a dose, facilitar a ingestão ou baratear o tratamento, especialmente em crianças e idosos. A preocupação é que essa prática resulte em imprecisão na dosagem das frações e instabilidade do fármaco. Avalie as afirmações:
+
+I. A partição de comprimidos só deve ser realizada naqueles que apresentam sulco funcional, ou seja, cujas subdivisões apresentam critérios de qualidade previamente estabelecidos.
+II. A partição de comprimidos de baixo índice terapêutico deve ser evitada, pois o aumento da friabilidade reduz a uniformidade de conteúdo entre as partes divididas.
+III. A partição pode ser realizada em formas farmacêuticas revestidas entericamente ou de liberação prolongada.
+IV. As cápsulas gelatinosas duras sempre podem ser abertas, já que seu próprio formato (corpo e tampa) pode facilitar a abertura.
+
+É correto apenas o que se afirma em:`,
+  alts: ['I e II.', 'II e III.', 'II e IV.', 'III e IV.', 'I, III e IV.'],
+  c: 'A',
+  e: [
+    'Correta. I: só o sulco funcional (com teste de subdivisão aprovado) garante frações uniformes. II: em fármacos de margem terapêutica estreita, pequenas variações de dose entre as metades são perigosas.',
+    'Errada. A III é falsa.',
+    'Errada. A IV é falsa.',
+    'Errada. III e IV são falsas.',
+    'Errada. III e IV são falsas.'
+  ],
+  obs: 'III é falsa porque partir destrói o revestimento entérico (o fármaco fica exposto ao ácido gástrico) ou o sistema de liberação prolongada (risco de dose de uma vez só). IV é falsa por causa do "sempre": cápsulas com grânulos gastrorresistentes ou de liberação modificada, e fármacos irritantes ou de sabor ruim, não devem ser abertas.',
+  fonte: 'Material de comprimidos e cápsulas (sulco funcional; formas de liberação modificada).'
+},
+{
+  id: 'INT-DPF-28', origem: 'Prova Integradora – DPF II (Q28)', assunto: 'Comprimidos',
+  enun: `Um processo de validação de comprimidos de pantoprazol 40 mg propôs reduzir a quantidade de estearato de cálcio por comprimido e compensar a quantidade com crospovidona. As etapas de mistura, compressão e revestimento foram validadas. Foi conduzido o teste de uniformidade de conteúdo em três lotes: X (maior concentração de lubrificante), Y (intermediária) e Z (menor concentração de lubrificante), após tempos de mistura de 18, 20 e 23 minutos.
+
+Resumo dos gráficos (13 amostras por lote; limites de tolerância de 85% a 115%):
+<table><tr><th>Tempo de mistura</th><th>Comportamento das curvas X, Y e Z</th><th>p (comparação entre X, Y e Z)</th></tr><tr><td>18 min</td><td>Oscilam bastante (≈ 91% a 104%)</td><td>0,01</td></tr><tr><td>20 min</td><td>Ainda oscilam (≈ 94% a 105%)</td><td>0,02</td></tr><tr><td>23 min</td><td>Curvas próximas e estáveis (≈ 95% a 99%)</td><td>0,08</td></tr></table>
+Com relação às informações apresentadas, assinale a opção correta.`,
+  alts: [
+    'O aumento da concentração da crospovidona deve refletir no aumento do tempo de desintegração dos lotes.',
+    'O aumento do tempo de mistura do pó de 18 para 23 minutos apresentou pouca influência na homogeneidade do ativo na formulação.',
+    'A redução da concentração do lubrificante nos lotes Y e Z, no tempo de 23 minutos, não impactou o ensaio de uniformidade de conteúdo.',
+    'As baixas concentrações de lubrificantes ou tempos inadequados de mistura resultam em problemas como baixa dureza e aumento dos tempos de desintegração.',
+    'O estearato de cálcio é um lubrificante pouco hidrofóbico, e a sua substituição pelo estearato de magnésio seria uma alternativa para melhorar a solubilidade da formulação.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. A crospovidona é superdesintegrante: aumentá-la DIMINUI o tempo de desintegração.',
+    'Errada. O tempo de mistura teve influência: em 18 e 20 min os lotes diferiam (p < 0,05) e em 23 min ficaram homogêneos.',
+    'Correta. Em 23 min, p = 0,08 (> 0,05): não há diferença estatística entre X, Y e Z, e todos ficam dentro de 85–115%. Logo, reduzir o lubrificante não afetou a uniformidade de conteúdo.',
+    'Errada. É o EXCESSO de lubrificante (ou a mistura prolongada com ele) que reduz a dureza e aumenta a desintegração, por formar um filme hidrofóbico. Pouco lubrificante causa aderência aos punções e dificuldade de ejeção.',
+    'Errada. Os estearatos são hidrofóbicos, e o de magnésio é ainda mais; trocar por ele não melhora a solubilidade.'
+  ],
+  obs: 'Leitura de p: p < 0,05 indica diferença significativa entre os lotes; p ≥ 0,05 indica que não há diferença. Na prova original os resultados vinham em gráficos; aqui estão resumidos na tabela.',
+  fonte: 'Material de comprimidos (lubrificantes, desintegrantes, uniformidade de conteúdo e validação do tempo de mistura).'
+},
+{
+  id: 'INT-DPF-29', origem: 'Prova Integradora – DPF II (Q29)', assunto: 'Formas farmacêuticas líquidas (suspensões e xaropes)',
+  enun: `A identificação dos constituintes de uma formulação e das funções de cada um deles é requisito básico para se interpretar a composição de uma fórmula. Considere as funções:
+
+I. Dar mais estabilidade à preparação através da complexação de possíveis íons presentes.
+II. Diminuir a tensão superficial entre as partículas sólidas e um veículo aquoso.
+III. Melhorar o sabor e o odor da preparação.
+IV. Conferir um sabor doce à preparação.
+
+As funções correspondem, respectivamente, aos constituintes:`,
+  alts: [
+    'acidificante, tampão, edulcorante e flavorizante.',
+    'alcalinizante, molhante, flavorizante e edulcorante.',
+    'quelante, molhante, flavorizante e edulcorante.',
+    'quelante, molhante, alcalinizante e edulcorante.',
+    'alcalinizante, flavorizante, edulcorante e aromatizante.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Complexar íons é função do quelante, e quem reduz a tensão superficial é o molhante.',
+    'Errada. O alcalinizante ajusta pH; quem complexa íons é o quelante (ex.: EDTA).',
+    'Correta. Quelante (EDTA) complexa íons metálicos que catalisam a degradação; molhante (tensoativo) reduz a tensão superficial sólido-líquido; flavorizante melhora sabor e odor; edulcorante adoça.',
+    'Errada. O alcalinizante não melhora sabor e odor; essa é a função do flavorizante.',
+    'Errada. Nenhuma das três primeiras funções corresponde.'
+  ],
+  fonte: 'Material de formas líquidas (adjuvantes: quelantes, molhantes, flavorizantes, edulcorantes).'
+},
+{
+  id: 'INT-DPF-30', origem: 'Prova Integradora – DPF II (Q30)', assunto: 'Formas farmacêuticas líquidas (suspensões e xaropes)', adaptada: true,
+  enun: `Segundo o Formulário Nacional da Farmacopeia Brasileira, suspensão é a forma farmacêutica líquida que contém partículas sólidas dispersas em um veículo líquido no qual as partículas não são solúveis. A Lei de Stokes pode ser usada na caracterização do comportamento dessas partículas no fluido viscoso:
+
+v = g · (ρp − ρw) · d² ÷ (18 · μ)
+
+(v = velocidade de sedimentação; ρp = densidade da partícula; ρw = densidade do veículo; d = diâmetro da partícula; μ = viscosidade do veículo)
+
+Sobre a aplicação da Lei de Stokes na formulação de suspensões orais, assinale a alternativa correta.`,
+  alts: [
+    'Para reduzir a sedimentação, deve-se aumentar o tamanho das partículas, pois partículas maiores ficam mais estáveis no veículo.',
+    'A velocidade de sedimentação é diretamente proporcional à viscosidade do veículo, por isso agentes suspensores aceleram a sedimentação.',
+    'A velocidade de sedimentação aumenta com o quadrado do diâmetro e com a diferença de densidade entre partícula e veículo, e diminui com a viscosidade; para estabilizar, reduz-se o tamanho das partículas (moagem/micronização), aproxima-se a densidade do veículo da das partículas e aumenta-se a viscosidade com agentes suspensores.',
+    'A diferença de densidade entre partícula e veículo não interfere na sedimentação, que depende apenas da gravidade.',
+    'Dobrar o diâmetro das partículas dobra a velocidade de sedimentação, enquanto dobrar a viscosidade não a altera.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. É o contrário: v depende de d², então partículas maiores sedimentam muito mais rápido.',
+    'Errada. A viscosidade está no denominador: mais viscosidade = sedimentação mais lenta. Por isso se usam agentes suspensores.',
+    'Correta. Resume os dois itens da prova: a) os fatores (d², ρp − ρw, μ) e b) como manipulá-los (reduzir o tamanho, ajustar a densidade do veículo, por exemplo com sacarose ou glicerina, e aumentar a viscosidade).',
+    'Errada. Se ρp = ρw, a velocidade é zero; quanto maior a diferença, mais rápida a sedimentação.',
+    'Errada. Dobrar o diâmetro QUADRUPLICA a velocidade (d²), e dobrar a viscosidade a reduz pela metade.'
+  ],
+  obs: 'Na prova original esta questão era discursiva: a) explicar como a Lei de Stokes prevê a sedimentação e os fatores envolvidos; b) como manipulá-los para garantir a estabilidade física.',
+  fonte: 'Material de suspensões (Lei de Stokes).'
+}
+]);
+
 </script>
 <script>
 /* Flashcards — conceitos que mais caem (baseados nos slides e capítulos conferidos) */
