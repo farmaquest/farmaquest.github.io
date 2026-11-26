@@ -1743,6 +1743,85 @@ Considerando o conceito de contaminação cruzada, é correto afirmar que:`,
 { ...DPF_HAUSNER_XY, id: 'DPF25-B-09', origem: '2025 – 1ª VA (Q9)' }
 ]);
 
+/* ================= PROVA SEGUNDA CHAMADA 2026 (simulado próprio) =================
+   A 2ª chamada repetiu questões de 2025 e 2026. As idênticas são copiadas daqui (cloneQ);
+   as que mudaram alguma frase ou alternativa estão escritas por extenso. */
+(function () {
+  function cloneQ(idOrig, idNovo, n, extra) {
+    const q = window.QUESTOES.find(function (x) { return x.id === idOrig; });
+    if (!q) return;
+    window.QUESTOES.push(Object.assign({}, q, { id: idNovo, simulado: 'segunda', ano: 2026, origem: '2026 – 2ª Chamada (' + n + ')' }, extra || {}));
+  }
+  cloneQ('DPF25-B-05', 'DPF26-SC-01', 'Q1');
+  cloneQ('DPF25-B-01', 'DPF26-SC-02', 'Q2', { obs: 'Questão idêntica à da 1ª VA de 2025 (Q1) e quase igual à da 1ª VA de 2026 (Q2). O professor reaproveita.' });
+  cloneQ('DPF25-B-02', 'DPF26-SC-03', 'Q3');
+  cloneQ('DPF25-B-03', 'DPF26-SC-04', 'Q4');
+})();
+
+addQ('dpf', 'segunda', 2026, [
+{
+  ...DPF_MISTURA_VF, id: 'DPF26-SC-05', origem: '2026 – 2ª Chamada (Q5)',
+  enun: `Uma mistura de pós pode ser definida como uma operação unitária que tem como objetivo trabalhar dois ou mais componentes, a princípio segregados ou parcialmente misturados, de modo que cada partícula de cada um dos seus componentes passe a entrar em contato o mais próximo possível com as unidades de outro componente ou de cada um dos outros componentes. Em relação às operações farmacêuticas, julgue V ou F:
+
+( ) Para obter uma mistura ideal, são fatores importantes as características do insumo farmacêutico e o equipamento envolvido.
+( ) A mistura de agentes tensoativos (lauril sulfato de sódio) durante a produção de pós pode ser necessária para diminuir a molhabilidade dos pós, melhorando sua biodisponibilidade.
+( ) Comumente os pós possuem em sua formulação um excipiente do tipo conservante, pois há uma grande suscetibilidade à proliferação microbiana nessa forma farmacêutica.
+( ) A trituração pode ser realizada através do moinho de rolos, através do atrito entre eles.
+( ) A mistura de pós pode ser considerada segregada quando não ocorre de forma homogênea, por diferença de granulometria ou densidade dos pós.`,
+  e: [
+    'Errada. O 2º item é falso: o tensoativo AUMENTA a molhabilidade (não diminui).',
+    'Correta. 1º V; 2º F (o lauril sulfato de sódio AUMENTA a molhabilidade, e é isso que melhora a dissolução e a biodisponibilidade; a frase diz "diminuir"); 3º F (pós têm baixa atividade de água e não costumam precisar de conservante); 4º V; 5º V (segregação por tamanho e densidade).',
+    'Errada. O 3º item é falso (pós secos não costumam levar conservante) e o 5º é verdadeiro.',
+    'Errada. O 1º item é verdadeiro.',
+    'Errada. O 4º item é verdadeiro: o moinho de rolos reduz o tamanho por compressão e atrito.'
+  ],
+  obs: 'Na prova original os itens eram só de V/F, sem alternativas (1,5 ponto). Gabarito: V, F, F, V, V. Nesta versão o 2º item diz "DIMINUIR a molhabilidade, melhorando a biodisponibilidade": a pegadinha é o verbo, porque o tensoativo aumenta a molhabilidade.'
+},
+{
+  ...DPF_PARACETAMOL, id: 'DPF26-SC-06', origem: '2026 – 2ª Chamada (Q6)',
+  alts: ['I e II apenas', 'II e III apenas', 'I e III apenas', 'I apenas', 'I, II e III'],
+  e: [
+    'Gabarito do professor (mesmo da 1ª VA de 2026). I (V): o fator de Hausner é calculado como dc/db. II (V): fluxo "fraco" corresponde a FH de 1,26 a 1,45, ou seja, maior que 1,25.',
+    'Errada pelo gabarito: deixa de fora o item I, que é verdadeiro.',
+    'Errada pelo gabarito: o item II é verdadeiro e precisaria estar incluído.',
+    'Errada. O item II também é verdadeiro.',
+    'Discutível. Tecnicamente o item III também está correto (excipientes que melhoram o fluxo reduzem o ângulo de repouso), mas na 1ª VA de 2026 o professor considerou apenas I e II.'
+  ],
+  obs: 'A folha corrigida não traz o gabarito oficial desta questão. Aqui foi mantido o gabarito do professor na 1ª VA de 2026 (I e II). Nesta 2ª chamada apareceu a alternativa "I, II e III", que tecnicamente também se defende. Na prova, decore: fluxo fraco = FH > 1,25.'
+},
+{
+  id: 'DPF26-SC-07', origem: '2026 – 2ª Chamada (Q7)', assunto: 'Cápsulas',
+  enun: `As cápsulas gelatinosas moles (softgel) são formas farmacêuticas muito utilizadas para a administração de fármacos e suplementos. Com relação à tecnologia de produção dessas cápsulas, assinale a alternativa correta:`,
+  alts: [
+    'As cápsulas gelatinosas moles são sempre preenchidas com substâncias sólidas ou pó finamente dividido.',
+    'A produção de cápsulas gelatinosas moles permite a encapsulação de soluções hidrofílicas.',
+    'A gelatina usada na produção das cápsulas moles é misturada com plastificantes, como glicerina ou sorbitol, para conferir flexibilidade à cápsula.',
+    'As cápsulas moles são produzidas por compressão direta, similar ao processo usado para comprimidos.',
+    'A produção de cápsulas gelatinosas moles não requer controle rigoroso de temperatura e umidade durante o processo.'
+  ],
+  c: 'C',
+  e: [
+    'Errada. Softgels geralmente contêm líquidos, óleos ou suspensões oleosas, não pós.',
+    'Errada. Soluções aquosas (hidrofílicas) dissolvem ou amolecem a gelatina; o conteúdo típico é LIPOFÍLICO (óleos, soluções oleosas).',
+    'Correta. Glicerina ou sorbitol plastificam a gelatina e dão a flexibilidade característica da cápsula mole.',
+    'Errada. Softgels são feitas por matriz rotativa (encapsulamento e selagem simultâneos), não por compressão.',
+    'Errada. A gelatina é muito sensível à temperatura e à umidade, então o controle é rigoroso.'
+  ],
+  obs: 'Mesmo tema das questões de softgel de 2025 e 2026, mas aqui em formato de alternativa única. A pegadinha da B é trocar "lipofílicas" por "hidrofílicas".',
+  fonte: 'Aula "Cápsulas", slides 17–21 (softgel: conteúdo, plastificantes, pontos críticos de temperatura/umidade).'
+}
+]);
+
+(function () {
+  function cloneQ(idOrig, idNovo, n, extra) {
+    const q = window.QUESTOES.find(function (x) { return x.id === idOrig; });
+    if (!q) return;
+    window.QUESTOES.push(Object.assign({}, q, { id: idNovo, simulado: 'segunda', ano: 2026, origem: '2026 – 2ª Chamada (' + n + ')' }, extra || {}));
+  }
+  cloneQ('DPF25-A-05', 'DPF26-SC-08', 'Q8', { obs: 'Na prova original, era V/F (1,0 ponto). Nesta 2ª chamada o último item diz "preencher TOTALMENTE", como em 2025, e por isso é verdadeiro (na 2ª VA de 2026 dizia "parcialmente" e era falso). O "slug" é exclusivo da via seca.' });
+  cloneQ('DPF26-P2-07', 'DPF26-SC-09', 'Q9', { obs: 'Na prova original esta questão era discursiva (1,5 ponto): "diferencie, descrevendo ou esquematizando". Erros comuns: confundir a via seca com a compressão direta e esquecer as etapas de secagem (úmida) e de compactação/moagem dos slugs (seca).' });
+})();
+
 </script>
 <script>
 /* Controle de Qualidade — Profa. Lyghia Maria Araújo Meirelles
@@ -5983,7 +6062,7 @@ function viewHome() {
   for (const [m, info] of Object.entries(MATERIAS)) {
     h += `<div class="mcard"><div class="mcard-head"><h3>${info.nome}</h3><p>${info.prof}</p></div><div class="mcard-body">`;
     for (const s of SIMS.filter(x => !x.separada)) {
-      const qs = baseQs(m, s.key); if (!qs.length) continue; /* matéria sem esse simulado (ex.: Segunda Chamada só em CQ) */
+      const qs = baseQs(m, s.key); if (!qs.length) continue; /* matéria sem esse simulado: pula a linha */
       const ans = getAns(m, s.key);
       const feitos = qs.filter(q => ans[q.id] !== undefined).length;
       const label = !feitos ? 'Começar' : feitos === qs.length ? 'Ver resumo' : 'Continuar';
